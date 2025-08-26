@@ -1,0 +1,90 @@
+:root {
+    --black-1: #212020;
+
+    --gray-0: #D4D4D4;
+    --gray-1: #BBBBBB;
+    
+    --orange-1: #EF5A2A;
+    --orange-2: #FFB098;    
+    
+    --white-0: #FFFFFF;
+    --white-1: #FBFBFB;
+    --white-2: #FCFCFC;
+    --white-3: #FDFDFD;
+    --white-4: #F3F3F3;
+    --white-5: #F5F5F5;
+    --white-6: #F8F8F8;
+    --white-7: #F7F7F7;
+    --white-8: #FFF7F4;
+    --white-9: #FFF7F5;
+    --white-10: #EBEBEB;
+}
+
+* {
+    font-family: "IBM Plex Sans", sans-serif !important;
+}
+
+::-webkit-scrollbar { 
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+.infinite-scroll-wrapper {
+    overflow: hidden;
+    width: 100%;
+    background: transparent;
+}
+
+.infinite-scroll-left {
+    display: flex;
+    width: max-content;
+    animation: scroll-left 50s linear infinite;
+}
+
+.infinite-scroll-right {
+    display: flex;
+    width: max-content;
+    animation: scroll-right 50s linear infinite;
+}
+
+.slide {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 150px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 100%;
+    }
+
+    img.square {
+        width: 40%;
+    }
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

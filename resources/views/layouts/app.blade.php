@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @include('layouts.metadata')
+
+    @include('layouts.styles')
+
+    @stack('styles')
+
+    @stack('scripts-head')
+</head>
+<body class="layout-fixed sidebar-expand-lg sidebar-mini main-background">
+    <div class="app-wrapper">
+        @include('layouts.navbar')
+        
+        @include('layouts.sub-navbar')
+
+        <main class="app-main">
+            @yield('content')
+        </main>
+
+        @include('layouts.footer')
+    </div>
+
+    @include('layouts.scripts')
+
+    @stack('scripts-body')
+</body>
+</html>

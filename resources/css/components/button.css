@@ -1,0 +1,76 @@
+.btn-redirect {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+
+    color: #212020; 
+    border: 1px solid #212020; 
+    border-radius: 64px;
+
+    i {
+        font-size: 20px;
+    }
+
+    span {
+        font-size: 16px; 
+        font-weight: 500; 
+        letter-spacing: .5px; 
+        height: fit-content !important;
+    }
+}
+
+.btn-redirect:hover {
+    background-color: #EF5A2A !important;
+    color: white !important; 
+    border: none !important;
+
+    font-weight: 400 !important;
+}
+
+.btn-direct {
+    color: #212020; 
+    border: 1px solid #212020; 
+    border-radius: 64px;
+
+    i.btn-icon {
+        font-size: 24px;
+    }
+
+    span.btn-text {
+        font-size: 16px; 
+        font-weight: 600; 
+        letter-spacing: 1px; 
+        height: fit-content !important;
+    }
+}
+
+.btn-slide-group {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    justify-content: end;
+
+    .btn-slide {
+        padding: 4px;
+        display: flex;
+
+        i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+    }
+
+    .btn-slide.left {
+        color: #F35728;
+        border: none;
+        border-radius: 4px;
+        background-color: #F5F5F5;
+    }
+
+    .btn-slide.right {
+        border: none;
+        border-radius: 4px;
+        background-color: #F35728;
+    }
+}
