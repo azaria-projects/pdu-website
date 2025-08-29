@@ -122,4 +122,57 @@
             background-color: #FCFCFC; 
         }
     }
+
+    #company-services {
+        .desc {
+            letter-spacing: .25px;
+            color: #BBBBBB;
+        }
+
+        .service-data {
+            display: flex;
+            flex-direction: column;
+
+            .service-desc {
+                font-size: 1rem;
+                font-weight: 400;
+                letter-spacing: .5px;
+            }
+
+            .service-feat {
+                display: flex;
+                gap: 16px;
+
+                .feat-data {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 120px;
+
+                    .stat-value {
+                        color: #212020;
+                        font-size: 20px;
+                        font-weight: 600;
+                        text-transform: lowercase;
+                    }
+
+                    .stat-desc {
+                        color: #212020;
+                        font-size: 12px;
+                        font-weight: 500;
+                        letter-spacing: .25px;
+                    }
+
+                    i {
+                        font-size: 40px;
+                        color: #EF5A2A;
+                    }   
+                }
+
+                .feat-data.even {
+                    background-color: #FFF7F4;
+                }
+            }
+        }
+    }
 }

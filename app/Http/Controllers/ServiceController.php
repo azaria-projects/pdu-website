@@ -8,18 +8,8 @@ use Illuminate\Support\Facades\Http;
 
 class ServiceController extends Controller
 {
-    public function mudlogging()
+    public function index()
     {
-        return view('pages.services.mudlogging.index');
-    }
-
-    public function mwd()
-    {
-        return view('pages.services.mwd.index');
-    }
-
-    public function plt()
-    {
-        return view('pages.services.plt.index');
+        return view('pages.services.index');
     }
 }

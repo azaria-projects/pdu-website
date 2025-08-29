@@ -1,29 +1,28 @@
 @extends('layouts.app')
 
+@include('pages.scripts')
+
 @section('content')
     <div class="landing-contents">
-        {{-- banners --}}
-        <div class="app-content-header pb-0">
-            <div class="container-fluid">
-                <div class="banner-container px-2 py-3">
-                    <img src="{{ asset('images/banner-1.png') }}" class="img-fluid rounded h-100 w-100" alt="banner-1">
-                </div>
-
-                <div class="d-flex justify-content-center align-items-center gap-3 py-2">
-                    <img src="{{ asset('icons/icon-default.svg') }}" class="img-fluid" width="60" height="60" alt="logo-pdu-minimized">
-                    <div class="d-flex flex-column justify-content-center">
-                        <h1 class="company-name">PARAMA DATA UNIT</h1>
-                        <h2 class="company-motto">COMPANY MOTTO</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         {{-- main contents --}}
         <div class="app-content">
-            <div class="container-fluid d-flex flex-column">
+            <div class="d-flex flex-column">
                 {{-- contents --}}
-                <div id="web-contents" class="contents px-0">
+                <section id="web-contents" class="contents d-fex flex-column px-0 pt-0">
+                    <div class="container-fluid">
+                        <div class="banner-container px-2 py-3">
+                            <img src="{{ asset('images/banner-1.png') }}" class="img-fluid rounded h-100 w-100" alt="banner-1">
+                        </div>
+
+                        <div class="d-flex justify-content-center align-items-center gap-3 py-2">
+                            <img src="{{ asset('icons/icon-default.svg') }}" class="img-fluid" width="60" height="60" alt="logo-pdu-minimized">
+                            <div class="d-flex flex-column justify-content-center">
+                                <h1 class="company-name">PARAMA DATA UNIT</h1>
+                                <h2 class="company-motto">COMPANY MOTTO</h2>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="card-contents">
                         @include('components.card-content', [
                             'imgDesc'   => 'image-research',
@@ -69,10 +68,30 @@
                     </div>
 
                     @include('components.slide-button')
-                </div>
+                </section>
+
+                {{-- map --}}
+                <section id="company-services" class="contents">
+                    <div class="d-flex flex-column">
+                        <h1 class="stats-title mb-2"><b>OUR COVERAGES SPAN ACROSS THE NATION</b></h1>
+                        <div class="btn-select-group">
+                            <button id="btn-geothermal" class="btn btn-selection active"><i class="ti ti-crane"></i> GEOTHERMAL </button>
+                            <button id="btn-oilgas" class="btn btn-selection"><i class="ti ti-route-alt-right"></i> OIL & GAS </button>
+                        </div>
+                        <small class="desc ms-4 mt-1"><i class="ti ti-click"></i> click to view</small>
+
+                        <div id="company-geothermal" class="company-data my-4">
+                            <img src="{{ asset('images/maps/map-geothermal.svg') }}" class="company-map w-100" alt="geothermal-map">
+                        </div>
+
+                        <div id="company-oilgas" class="company-data d-none my-4">
+                            <img src="{{ asset('images/maps/map-oilgas.svg') }}" class="company-map w-100" alt="oilgas-map">
+                        </div>
+                    </div>
+                </section>
 
                 {{-- statistics --}}
-                <div id="company-statistics" class="contents row">
+                <section id="company-statistics" class="contents d-flex align-items-center">
                     <div class="d-flex flex-column">
                         <h1 class="stats-title mb-4"><b>COMPANY STATISTICS</b></h1>
                         <div class="row">
@@ -135,10 +154,80 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                {{-- services [responsive problem!] --}}
+                <section id="company-services" class="contents">
+                    <div class="d-flex flex-column">
+                        <h1 class="stats-title mb-2"><b>OUR SERVICES</b></h1>
+                        <div class="btn-select-group">
+                            <button id="btn-mudlogging" class="btn btn-selection active"><i class="ti ti-crane"></i> MUDLOGGING</button>
+                            <button id="btn-mwd" class="btn btn-selection"><i class="ti ti-route-alt-right"></i> MWD DIRECTIONAL DRILLING </button>
+                            <button id="btn-plt" class="btn btn-selection"><i class="ti ti-car-turbine"></i> PLT SERVICES </button>
+                        </div>
+                        <small class="desc ms-4 mt-1"><i class="ti ti-click"></i> click to view</small>
+
+                        <div id="service-mudlogging" class="service-data mt-3">
+                            <img src="{{ asset('images/card-services/mudlogging.png') }}" class="service-img rounded mb-4" alt="service-mudlogging-image">
+                            <p class="service-desc">Our mud logging services provide detailed, real-time geological data to support safer and more efficient drilling operations. From accurate lithology descriptions to gas detection and monitoring, our experienced mudloggers deliver comprehensive reports that help identify formation tops and potential hazards. We maintain constant communication with drilling and geology teams, ensuring that decisions can be made based on up-to-date and reliable surface data.</p>
+
+                            <div class="service-feat mt-2">
+                                <div class="feat-data">
+                                    <i class="ti ti-drop-circle"></i>
+                                    <span class="stat-value">106</span>
+                                    <span class="stat-desc">oil & gas well</span>
+                                </div>
+
+                                <div class="feat-data even">
+                                    <i class="ti ti-building-lighthouse"></i>
+                                    <span class="stat-value">63</span>
+                                    <span class="stat-desc">geothermal well</span>
+                                </div>
+
+                                <div class="feat-data">
+                                    <i class="ti ti-building-broadcast-tower"></i>
+                                    <span class="stat-value">+13</span>
+                                    <span class="stat-desc">sensors</span>
+                                </div>
+
+                                <div class="feat-data even">
+                                    <i class="ti ti-alarm-smoke"></i>
+                                    <span class="stat-value">+6</span>
+                                    <span class="stat-desc">gas sensors</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="service-mwd" class="service-data d-none mt-3">
+                            <img src="{{ asset('images/card-services/mwd.png') }}" class="service-img rounded mb-4" alt="service-mudlogging-image">
+                            <p class="service-desc">Our directional drilling support enhances accuracy and efficiency during complex well paths. We deliver real-time geological insights to keep your wellbore aligned with target formations. By working closely with drilling teams, we help reduce deviations and minimize non-productive time. Trust our mudlogging expertise to drive smarter, safer drilling decisions.</p>
+
+                            <div class="service-feat mt-2">
+                                <div class="feat-data">
+                                    <i class="ti ti-drop-circle"></i>
+                                    <span class="stat-value">40</span>
+                                    <span class="stat-desc">oil & gas well</span>
+                                </div>
+
+                                <div class="feat-data even">
+                                    <i class="ti ti-building-lighthouse"></i>
+                                    <span class="stat-value">10</span>
+                                    <span class="stat-desc">geothermal well</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="service-plt" class="service-data d-none mt-3">
+                            <img src="{{ asset('images/card-services/plt.png') }}" class="service-img rounded mb-4" alt="service-mudlogging-image">
+                            <p class="service-desc">We provide expert support in interpreting Production Logging Tool (PLT) data to reveal detailed flow profiles. Our team integrates downhole data with surface mudlogging information for a full picture of well performance. This helps identify productive zones, fluid types, and potential issues. Rely on us to turn data into decisions that optimize your production.</p>
+                        </div>
+                    </div>
+                </section>
                 
-                {{-- partners & testimonies --}}
-                <div id="partners-testimonies" class="contents row px-0">
+                {{-- partners & testimonies [responsive problem!] --}}
+                <section id="partners-testimonies" class="contents row px-0">
                     <div class="d-flex flex-column">
                         <h1 class="title mb-4"><b>OUR PARTNERS & TESTIMONIES</b></h1>
                         <div class="testimonies-scroll row flex-nowrap gap-4 mb-4">
@@ -158,7 +247,7 @@
 
                         @include('components.slide-partners')
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     </div>

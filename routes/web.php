@@ -17,21 +17,18 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::prefix('services')->group(function () {
     Route::controller(ServiceController::class)->group(function () {
-        Route::get('/mudlogging', 'mudlogging')->name('services.mudlogging');
-        Route::get('/mwd-services', 'mwd')->name('services.mwd');
-        Route::get('/plt-services', 'plt')->name('services.plt');
+        Route::get('/', 'index')->name('services.index');
     });
 });
 
 Route::prefix('careers')->group(function () {
     Route::controller(CareerController::class)->group(function () {
-        Route::get('/opportunities', 'opportunities')->name('careers.opportunities');
-        Route::get('/descriptions', 'descriptions')->name('careers.descriptions');
+        Route::get('/', 'index')->name('careers.index');
     });
 });
 
 Route::prefix('company')->group(function () {
     Route::controller(CompanyController::class)->group(function () {
-        Route::get('/overview', 'index')->name('companies.overview');
+        Route::get('/', 'index')->name('companies.index');
     });
 });

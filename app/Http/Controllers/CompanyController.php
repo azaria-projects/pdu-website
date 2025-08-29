@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Http;
 
 class CompanyController extends Controller
 {
-    public function overview()
+    public function index()
     {
-        return view('pages.company.overview.index');
+        return view('pages.company.index');
     }
 }

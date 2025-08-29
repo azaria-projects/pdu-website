@@ -8,13 +8,8 @@ use Illuminate\Support\Facades\Http;
 
 class CareerController extends Controller
 {
-    public function opportunities()
+    public function index()
     {
-        return view('pages.careers.opportunities.index');
-    }
-
-    public function descriptions()
-    {
-        return view('pages.careers.descriptions.index');
+        return view('pages.careers.index');
     }
 }
