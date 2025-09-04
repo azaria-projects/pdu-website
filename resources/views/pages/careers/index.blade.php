@@ -21,12 +21,12 @@
             <div class="menu-content px-0 pb-0">
                 {{-- opportunities --}}
                 <div id="content-opportunities" class="content">
-                    <div class="d-flex flex-column align-items-center" style="padding: 32px;">
+                    <div class="d-flex flex-column align-items-center" style="padding: 0px 32px 32px 32px;">
                         <h2 class="title mb-3">WORK WITH US</h2>
                         <p class="description text-center">As a mudlogging company, we offers a unique opportunity to be part of the frontline of energy exploration. You'll gain hands-on experience with real-time geological data and cutting-edge drilling technologies. Every day brings new challenges, from analyzing rock cuttings to supporting critical drilling decisions. It's a dynamic environment that combines fieldwork, technology, and teamwork. We provide full training, career growth opportunities, and the chance to travel to diverse drilling sites. Join us and be part of a team that plays a vital role in powering the world.</p>
                         <div class="d-flex gap-3">
-                            <span class="d-flex gap-2 align-items-center"><i class="ti ti-mail-spark"></i>email@mail.com</span>
-                            <span class="d-flex gap-2 align-items-center"><i class="ti ti-mail-spark"></i>email@mail.com</span>
+                            <span class="d-flex gap-2 align-items-center"><i class="icon ti ti-mail-spark"></i>email@mail.com</span>
+                            <span class="d-flex gap-2 align-items-center"><i class="icon ti ti-mail-spark"></i>email@mail.com</span>
                         </div>
                     </div>
 

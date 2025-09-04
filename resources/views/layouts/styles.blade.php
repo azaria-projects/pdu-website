@@ -16,6 +16,6 @@
         'resources/css/pages/index.css',
         'resources/css/pages/company/index.css',
         'resources/css/pages/services/index.css',
-        'resources/css/pages/opportunities/index.css',
+        'resources/css/pages/careers/index.css',
     ])
 @endpush

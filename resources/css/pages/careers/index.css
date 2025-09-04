@@ -1,0 +1,10 @@
+#content-opportunities {
+    .description {
+        font-size: 16px;
+        font-weight: 300 !important;
+    }
+
+    .icon {
+        font-size: 24px;
+    }
+}
