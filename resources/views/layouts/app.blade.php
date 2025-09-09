@@ -15,6 +15,8 @@
         
         @include('layouts.sub-navbar')
 
+        @include('layouts.sidebar')
+
         <main class="app-main">
             @yield('content')
         </main>

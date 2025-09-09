@@ -1,5 +1,7 @@
 import './bootstrap';
 
+import { OverlayScrollbars } from 'overlayscrollbars';
+
 function revealOnScroll() {
     const sections = document.querySelectorAll('section');
     const triggerBottom = window.innerHeight * 0.40;

@@ -2,6 +2,12 @@
 
 @include('pages.services.scripts')
 
+@push('styles')
+    @vite([
+        'resources/css/pages/services/index.css'
+    ])
+@endpush
+
 @section('content')
     <div class="app-content px-0">
         <div class="container-fluid d-flex flex-column px-0">

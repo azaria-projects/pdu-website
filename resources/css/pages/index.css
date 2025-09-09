@@ -199,6 +199,125 @@
     }
 }
 
+.banner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 350px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .title {
+        font-size: 32px;
+        font-weight: 700;
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .sub-title {
+        font-size: 16px;
+        font-weight: 400;
+        color: white;
+        text-transform: lowercase; 
+        text-align: center; 
+    }
+}
+
+.menu-container {
+    .list-menu {
+        height: 62px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+
+        .menu {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 0px 8px;
+            cursor: pointer;
+
+            span {
+                text-align: center;
+                text-transform: uppercase;
+                letter-spacing: .5px;
+                font-size: 12px;
+            }
+        }
+
+        .menu.active {
+            height: 100%;
+            background-color: #F4F4F4;
+
+            span {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 64px;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 0px;
+            text-transform: uppercase;
+        }
+
+        .sub-title {
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: .5px;
+        }
+
+        .menu-feat {
+            display: flex;
+            gap: 16px;
+            padding: 8px;
+            flex-wrap: wrap;
+
+            .feat {
+                width: 120px;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                i {
+                    font-size: 40px;
+                    color: #EF5A2A;
+                }
+
+                .feat-value {
+                    font-weight: 600;
+                    font-size: 20px;
+                }
+
+                .feat-desc {
+                    font-weight: 500;
+                    font-size: 12px;
+                }
+            }
+
+            .feat.even {
+                background-color: #FFF7F4;
+            }
+        }
+    }
+}
+
 @media (min-width: 1200px) {
     #company-statistics {
         .row > div {
@@ -345,6 +464,17 @@
     .contents {
         padding-left: 20px !important;
         padding-right: 20px !important;
+    }
+
+    .menu-content {
+        .content {
+            .menu-feat {
+                .feat {
+                    padding: 8px 0px;
+                    width: 100%;
+                }
+            }
+        }
     }
 
     .btn-select-group {

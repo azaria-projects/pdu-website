@@ -1,92 +1,43 @@
-<aside class="app-sidebar sidebar-rtdm" data-bs-theme="dark">
-    @include('components.aside-user')
+<aside class="app-sidebar d-sm-block d-md-none" style="background-color: white;">
+    <div class="sidebar-brand border-0">
+        <a href="{{ route('index') }}" class="brand-link">
+            <img src="{{ asset('icons/icon-default.svg') }}" alt="PDU Logo" class="brand-image"/>
+            <span class="brand-text d-none">Parama Data Unit</span>
+        </a>
+    </div>
 
     <div class="sidebar-wrapper">
         <nav class="mt-2">
-            <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
-
-                <li class="nav-header">Depth Sensors</li>
-                @include('components.aside-items', [
-                    'ic' => 'ti-arrow-down-dashed',
-                    'nm' => 'Depth',
-                    'mt' => 'm',
-                ])
-
-                @include('components.aside-items', [
-                    'ic' => 'ti-arrows-transfer-up-down',
-                    'nm' => 'BV-Depth',
-                    'mt' => 'm',
-                ])
-
-                @include('components.aside-items', [
-                    'ic' => 'ti-needle-thread',
-                    'nm' => 'Bit-Depth',
-                    'mt' => 'm',
-                ])
-
-                @include('components.aside-items', [
-                    'ic' => 'ti-blocks',
-                    'nm' => 'Block Pos',
-                    'mt' => 'm',
-                ])
-
-                <li class="nav-header mt-2">Drilling Sensors</li>
-                @include('components.aside-items', [
-                    'ic' => 'ti-whirl',
-                    'nm' => 'Torque',
-                    'mt' => 'klb.ft',
-                ])
-
-                @include('components.aside-items', [
-                    'ic' => 'ti-propeller',
-                    'nm' => 'RPM',
-                    'mt' => 'min',
-                ])
-
-                @include('components.aside-items', [
-                    'ic' => 'ti-arrow-big-down-lines',
-                    'nm' => 'ROPi',
-                    'mt' => 'm/hr',
-                ])
-
-                @include('components.aside-items', [
-                    'ic' => 'ti-fish-hook',
-                    'nm' => 'HKLD',
-                    'mt' => 'klb',
-                ])
-
-                @include('components.aside-items', [
-                    'ic' => 'ti-stack-push',
-                    'nm' => 'WOB',
-                    'mt' => 'klb',
-                ])
-
-                @include('components.aside-items', [
-                    'ic' => 'ti-texture',
-                    'nm' => 'STPPRESS',
-                    'mt' => 'psi',
-                ])
+            <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="navigation" aria-label="Main navigation" data-accordion="false" id="navigation">
+                <li class="nav-item menu-open">
+                    <a href="{{ route('index') }}" class="nav-link gap-1"> 
+                        <i class="nav-icon ti ti-building-castle" style="font-size: 20px"></i> 
+                        <span>Home</span>
+                    </a>
+                </li>
                 
-                <li class="nav-header mt-2">Circulation Sensors</li>
-                @include('components.aside-items', [
-                    'ic' => 'ti-ripple',
-                    'nm' => 'Flow In',
-                    'mt' => 'gpm',
-                ])
+                <li class="nav-item">
+                    <a href="{{ route('services.index') }}" class="nav-link gap-1"> 
+                        <i class="nav-icon ti ti-notebook" style="font-size: 20px"></i> 
+                        <span>Services</span>
+                    </a>
+                </li>
 
-                @include('components.aside-items', [
-                    'ic' => 'ti-puzzle-2',
-                    'nm' => 'Flow Out',
-                    'mt' => 'gpm',
-                ])
+                <li class="nav-item">
+                    <a href="{{ route('careers.index') }}" class="nav-link gap-1"> 
+                        <i class="nav-icon ti ti-bulldozer" style="font-size: 20px"></i> 
+                        <span>Career</span>
+                    </a>
+                </li>
 
-                <li class="nav-header mt-2">Other Sensors</li>
-                @include('components.aside-items', [
-                    'ic' => 'ti-wind',
-                    'nm' => 'SCFM',
-                    'mt' => 'f3/m',
-                ])
+                <li class="nav-item">
+                    <a href="{{ route('companies.index') }}" class="nav-link gap-1"> 
+                        <i class="nav-icon ti ti-blocks" style="font-size: 20px"></i> 
+                        <span>Company</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
+
 </aside>

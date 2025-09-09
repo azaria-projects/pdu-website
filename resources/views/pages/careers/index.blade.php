@@ -2,6 +2,12 @@
 
 @include('pages.careers.scripts')
 
+@push('styles')
+    @vite([ 
+        'resources/css/pages/careers/index.css' 
+    ])
+@endpush
+
 @section('content')
     <div class="app-content px-0">
         <div class="container-fluid d-flex flex-column px-0">
@@ -34,7 +40,7 @@
                 </div>
 
                 {{-- descriptions --}}
-                <div id="content-descriptions" class="content pt-0 d-none" style="padding: 32px;">
+                <div id="content-descriptions" class="content pt-0 d-none" >
                     <div class="d-flex flex-column">
                         <h2 class="title mb-2">MUD LOGGER</h2>
                         <div class="ps-4">

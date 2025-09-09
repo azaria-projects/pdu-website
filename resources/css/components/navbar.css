@@ -79,3 +79,8 @@ nav.app-header.navbar {
     color: #E55348 !important;
 }
 
+@media (max-width: 576px) {
+    .nav-mobile {
+        flex-grow: 1;
+    }
+}

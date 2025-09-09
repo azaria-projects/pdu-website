@@ -35,6 +35,10 @@
     border-radius: 4px;
 }
 
+.banner-container {
+    width: 100%;
+}
+
 .infinite-scroll-wrapper {
     overflow: hidden;
     width: 100%;
