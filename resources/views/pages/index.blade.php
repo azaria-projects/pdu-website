@@ -14,16 +14,16 @@
                             <img src="{{ asset('images/banner-1.png') }}" class="img-fluid rounded h-100 w-100" alt="banner-1">
                         </div>
 
-                        <div class="d-flex justify-content-center align-items-center gap-3 py-2">
+                        <div class="company-header gap-3 py-2">
                             <img src="{{ asset('icons/icon-default.svg') }}" class="img-fluid" width="60" height="60" alt="logo-pdu-minimized">
-                            <div class="d-flex flex-column justify-content-center">
+                            <div class="company-data">
                                 <h1 class="company-name">PARAMA DATA UNIT</h1>
                                 <h2 class="company-motto">COMPANY MOTTO</h2>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card-contents">
+                    <div id="news-content" class="card-contents">
                         @include('components.card-content', [
                             'imgDesc'   => 'image-research',
                             'newsDesc'  => 'view our latest research journals and advancement of mudlogging technologies.',
@@ -67,24 +67,26 @@
                         ])
                     </div>
 
-                    @include('components.slide-button')
+                    @include('components.slide-button', ['target' => 'news-content'])
                 </section>
 
                 {{-- map --}}
-                <section id="company-services" class="contents">
+                <section id="company-services" class="contents px-0">
                     <div class="d-flex flex-column">
-                        <h1 class="stats-title mb-2"><b>OUR COVERAGES SPAN ACROSS THE NATION</b></h1>
-                        <div class="btn-select-group">
-                            <button id="btn-geothermal" class="btn btn-selection active"><i class="ti ti-crane"></i> GEOTHERMAL </button>
-                            <button id="btn-oilgas" class="btn btn-selection"><i class="ti ti-route-alt-right"></i> OIL & GAS </button>
+                        <div id="company-title">
+                            <h1 class="stats-title mb-2"><b>OUR COVERAGES SPAN ACROSS THE NATION</b></h1>
+                            <div class="btn-select-group">
+                                <button id="btn-geothermal" class="btn btn-selection active"><i class="ti ti-crane"></i> GEOTHERMAL </button>
+                                <button id="btn-oilgas" class="btn btn-selection"><i class="ti ti-route-alt-right"></i> OIL & GAS </button>
+                            </div>
+                            <small class="desc ms-4 mt-1"><i class="ti ti-click"></i> click to view</small>
                         </div>
-                        <small class="desc ms-4 mt-1"><i class="ti ti-click"></i> click to view</small>
 
-                        <div id="company-geothermal" class="company-data my-4">
+                        <div id="company-geothermal" class="company-data my-4 px-2">
                             <img src="{{ asset('images/maps/map-geothermal.svg') }}" class="company-map w-100" alt="geothermal-map">
                         </div>
 
-                        <div id="company-oilgas" class="company-data d-none my-4">
+                        <div id="company-oilgas" class="company-data d-none my-4 px-2">
                             <img src="{{ asset('images/maps/map-oilgas.svg') }}" class="company-map w-100" alt="oilgas-map">
                         </div>
                     </div>
@@ -230,7 +232,7 @@
                 <section id="partners-testimonies" class="contents row px-0">
                     <div class="d-flex flex-column">
                         <h1 class="title mb-4"><b>OUR PARTNERS & TESTIMONIES</b></h1>
-                        <div class="testimonies-scroll row flex-nowrap gap-4 mb-4">
+                        <div id="testimonies-content" class="testimonies-scroll row flex-nowrap gap-4 mb-4">
                             @for ($i = 0; $i < 6; $i++)
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-5 d-flex flex-column align-items-start">
                                     @include('components.card-review', [
@@ -243,7 +245,7 @@
                             @endfor
                         </div>
 
-                        @include('components.slide-button')
+                        @include('components.slide-button', ['target' => 'testimonies-content'])
 
                         @include('components.slide-partners')
                     </div>

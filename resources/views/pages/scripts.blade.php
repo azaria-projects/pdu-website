@@ -14,6 +14,21 @@
         const sv4 = document.getElementById('company-geothermal');
         const sv5 = document.getElementById('company-oilgas');
 
+        const scrollAmount = 300;
+        const updateButtonStates = (target, leftBtn, rightBtn) => {
+            if (!target) return;
+            
+            const maxScrollLeft = target.scrollWidth - target.clientWidth;
+
+            if (leftBtn) {
+                leftBtn.disabled = target.scrollLeft <= 0;
+            }
+
+            if (rightBtn) {
+                rightBtn.disabled = target.scrollLeft >= maxScrollLeft - 1;
+            }
+        };
+
         bt1.addEventListener("click", function (e) {
             if (sv1.classList.contains('d-none')) {
                 sv2.classList.add('d-none');
@@ -92,6 +107,39 @@
             if (bt4.classList.contains('active')) {
                 bt4.classList.remove('active');
             }
+        });
+
+        document.querySelectorAll('.btn-slide').forEach(button => {
+            button.addEventListener('click', function () {
+                const direction = this.classList.contains('left') ? 'left' : 'right';
+                const targetId = this.getAttribute('data-target-id');
+                const target = document.getElementById(targetId);
+
+                if (!target) return;
+
+                const scrollBy = direction === 'left' ? -scrollAmount : scrollAmount;
+
+                target.scrollBy({
+                    left: scrollBy,
+                    behavior: 'smooth'
+                });
+
+                setTimeout(() => {
+                    const parentGroup = this.closest('.btn-slide-group');
+                    const leftBtn = parentGroup.querySelector('.btn-slide.left');
+                    const rightBtn = parentGroup.querySelector('.btn-slide.right');
+                    updateButtonStates(target, leftBtn, rightBtn);
+                }, 300);
+            });
+        });
+
+        document.querySelectorAll('.btn-slide-group').forEach(group => {
+            const leftBtn = group.querySelector('.btn-slide.left');
+            const rightBtn = group.querySelector('.btn-slide.right');
+            const targetId = leftBtn?.getAttribute('data-target-id');
+            const target = document.getElementById(targetId);
+
+            updateButtonStates(target, leftBtn, rightBtn);
         });
     });
 </script>

@@ -57,6 +57,17 @@
                 }
             }
         }
+
+        .company-header {
+            display: flex;
+            justify-content: center;
+
+            .company-data {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
     }
 
     #company-statistics {
@@ -92,6 +103,7 @@
 
     #partners-testimonies {
         .title {
+            font-size: 32px !important;
             padding-left: 64px;
             padding-right: 64px;
         }
@@ -127,6 +139,11 @@
         .desc {
             letter-spacing: .25px;
             color: #BBBBBB;
+        }
+
+        #company-title {
+            padding-left: 64px; 
+            padding-right: 64px;
         }
 
         .service-data {
@@ -173,6 +190,218 @@
                     background-color: #FFF7F4;
                 }
             }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    section {
+        margin-bottom: 64px;
+    }
+
+    .contents {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    .btn-select-group {
+        width: 100%;
+        border-radius: 16px;
+        flex-direction: column;
+        background-color: transparent;
+        border: none;
+
+        button {
+            width: 100%;
+            border-radius: 10px !important;
+            justify-content: start;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+    }
+
+    #web-contents {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        
+        .container-fluid {
+            padding: 0px;
+
+            .banner-container {
+                img {
+                    object-fit: cover;
+                }
+            }
+
+            .company-header {
+                display: flex;
+                align-items: center;
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                .company-data {
+                    .company-name {
+                        font-size: 20px;
+                        text-align: start;
+                        font-weight: 700 !important;
+                        letter-spacing: .15px;
+                    }
+
+                    .company-motto {
+                        font-size: 14px;
+                        text-align: start;
+                    }
+                }
+            }
+        }
+
+        #news-content {
+            .card {
+                width: 300px !important;
+                min-width: 300px !important;
+                border-radius: 10px !important;
+
+                .card-body {
+                    width: 100% !important;
+
+                    img {
+                        object-fit: cover;
+                    }
+
+                    .btn-redirect {
+                        i {
+                            font-size: 18px;
+                        }
+
+                        .btn-text {
+                            font-weight: 600;
+                            font-size: .8rem;
+                        }
+                    }
+
+                    .description {
+                        font-size: 16px;
+                        font-weight: 400;
+                        text-align: left;
+                        letter-spacing: .15px;
+                    }
+                }
+            }
+        }
+    }
+
+    #company-services {
+        display: none;
+        padding: 16px !important;
+
+        #company-title {
+            padding-left: 16px !important; 
+            padding-right: 16px !important;
+        }
+
+        .stats-title {
+            font-size: 32px !important;
+            margin-bottom: 16px !important;
+        }
+
+        .service-img {
+            height: 200px !important;
+            object-fit: cover;
+        }
+
+        .service-desc {
+            font-weight: 300 !important;
+            text-align: justify;
+            margin: 0px;
+        }
+
+        .service-feat {
+            flex-direction: column;
+
+            .feat-data {
+                justify-content: center;
+                height: 180px;
+                width: 100% !important;
+                
+                i {
+                    font-size: 64px !important;
+                }
+
+                .stat-value {
+                    font-weight: 700 !important;
+                    font-size: 28px !important;
+                }
+
+                .stat-desc {
+                    font-weight: 400 !important;
+                    font-size: 16px !important;
+                }
+            }
+        }
+    }
+
+    #company-statistics {
+        .row > div {
+            padding: 32px !important; 
+
+            i.icon {
+                font-size: 64px !important;
+            }
+
+            .stats-number {
+                font-size: 28px !important; 
+                font-weight: 700;
+            }
+
+            .stats-desc {
+                font-size: 14px !important; 
+                font-weight: 400;
+                text-align: center; 
+                letter-spacing: .5px;
+            }
+        }
+
+        .row > div.shaded {
+            background-color: #FFF7F5;
+        }
+    }
+
+    #partners-testimonies {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+
+        .title {
+            padding: 0px !important;
+        }
+
+        #testimonies-content {
+            padding: 0px;
+
+            div {
+                padding: 16px;
+
+                img {
+                    width: 60px;
+                    margin-bottom: 16px !important;
+                }
+
+                .review-name {
+                    font-size: 28px;
+                }
+
+                .review-desc {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        
+        .slide {
+            width: 150px;
+            height: 100px;
         }
     }
 }
