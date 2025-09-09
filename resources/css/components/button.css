@@ -90,7 +90,7 @@
         align-items: center;
         gap: 8px;
 
-        border-radius: 32PX;
+        border-radius: 32px;
         font-size: 1rem;
         font-weight: 500;
         background-color: transparent;
@@ -119,3 +119,51 @@
     }
 }   
 
+@media (max-width: 768px) {
+    .btn-select-group {
+        flex-direction: column;
+        width: 100%;
+
+        border: none;
+        border-radius: 0px;
+        background-color: transparent;
+
+        .btn {
+            border-radius: 6px !important;
+        }
+
+        button, button:active {
+            font-size: 16px;
+            
+            i {
+                font-size: 24px;
+            }
+        }
+
+        button.active,
+        button.active:active {
+            font-size: 16px;
+        }
+    }   
+}
+
+@media (max-width: 576px) {
+    .btn-select-group {
+        .btn {
+            border-radius: 6px !important;
+        }
+
+        button, button:active {
+            font-size: 14px;
+            
+            i {
+                font-size: 20px;
+            }
+        }
+
+        button.active,
+        button.active:active {
+            font-size: 14px;
+        }
+    }   
+}

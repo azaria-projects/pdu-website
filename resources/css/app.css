@@ -72,7 +72,8 @@
 }
 
 section {
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    min-height: fit-content;
     opacity: 0;
     transform: translateY(0px);
     transition: opacity 1s ease, transform 1s ease;
@@ -82,14 +83,6 @@ section {
 section.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-section:nth-child(odd) {
-    background: var(--white-0);
-}
-
-section:nth-child(even) {
-    background: var(--white-0);
 }
 
 @keyframes scroll-left {
@@ -107,5 +100,23 @@ section:nth-child(even) {
     }
     100% {
         transform: translateX(0);
+    }
+}
+
+@media (min-width: 2048px) {
+    .app-content > div {
+        align-items: center;
+
+        section {
+            opacity: 1;
+            transform: unset;
+            transition: unset;
+            max-width: 2048px !important;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: unset;
+        }
     }
 }

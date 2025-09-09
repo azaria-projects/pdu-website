@@ -70,8 +70,8 @@
                     @include('components.slide-button', ['target' => 'news-content'])
                 </section>
 
-                {{-- map --}}
-                <section id="company-services" class="contents px-0">
+                {{-- map [DESIGN NEED TO BE UPDATED] --}}
+                <section id="company-map" class="contents px-0 d-none">
                     <div class="d-flex flex-column">
                         <div id="company-title">
                             <h1 class="stats-title mb-2"><b>OUR COVERAGES SPAN ACROSS THE NATION</b></h1>
@@ -94,10 +94,10 @@
 
                 {{-- statistics --}}
                 <section id="company-statistics" class="contents d-flex align-items-center">
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column w-100">
                         <h1 class="stats-title mb-4"><b>COMPANY STATISTICS</b></h1>
                         <div class="row">
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 shaded d-flex flex-column align-items-center">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 d-flex flex-column align-items-center">
                                 @include('components.stats', [
                                     'icon'    => 'ti-rosette-discount-check',
                                     'desc'    => 'Performance Rating',
@@ -113,7 +113,7 @@
                                 ])
                             </div>
 
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 shaded d-flex flex-column align-items-center">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 d-flex flex-column align-items-center">
                                 @include('components.stats', [
                                     'icon'    => 'ti-wall',
                                     'desc'    => 'Logged Wells',
@@ -129,8 +129,6 @@
                                 ])
                             </div>
 
-                            {{-- ---- --}}
-
                             <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 d-flex flex-column align-items-center">
                                 @include('components.stats', [
                                     'icon'    => 'ti-clock-pause',
@@ -139,7 +137,7 @@
                                 ])
                             </div>
 
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 shaded d-flex flex-column align-items-center">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 d-flex flex-column align-items-center">
                                 @include('components.stats', [
                                     'icon'    => 'ti-user-hexagon',
                                     'desc'    => 'Partners',
@@ -228,27 +226,25 @@
                     </div>
                 </section>
                 
-                {{-- partners & testimonies [responsive problem!] --}}
-                <section id="partners-testimonies" class="contents row px-0">
-                    <div class="d-flex flex-column">
-                        <h1 class="title mb-4"><b>OUR PARTNERS & TESTIMONIES</b></h1>
-                        <div id="testimonies-content" class="testimonies-scroll row flex-nowrap gap-4 mb-4">
-                            @for ($i = 0; $i < 6; $i++)
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-5 d-flex flex-column align-items-start">
-                                    @include('components.card-review', [
-                                        'review'     => 'We’ve worked with this mudlogging company on several wells, and they’ve consistently delivered quality data. Their loggers are knowledgeable, attentive, and always willing to communicate with the rig crew. The real-time data was accurate and timely, which helped optimize our drilling decisions. We’ll definitely continue to use their services on future projects.',
-                                        'reviewer'   => 'John Doe',
-                                        'reviewRole' => 'Drilling Manager',
-                                        'reviewIcon' => 'icons/icon-petrochina.png',
-                                    ])
-                                </div>
-                            @endfor
-                        </div>
-
-                        @include('components.slide-button', ['target' => 'testimonies-content'])
-
-                        @include('components.slide-partners')
+                {{-- partners & testimonies --}}
+                <section id="partners-testimonies" class="contents d-fex flex-column px-1">
+                    <h1 class="title mb-4"><b>OUR PARTNERS & TESTIMONIES</b></h1>
+                    <div id="testimonies-content" class="testimonies-scroll row flex-nowrap gap-4 mb-4">
+                        @for ($i = 0; $i < 6; $i++)
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-5 d-flex flex-column align-items-start">
+                                @include('components.card-review', [
+                                    'review'     => 'We’ve worked with this mudlogging company on several wells, and they’ve consistently delivered quality data. Their loggers are knowledgeable, attentive, and always willing to communicate with the rig crew. The real-time data was accurate and timely, which helped optimize our drilling decisions. We’ll definitely continue to use their services on future projects.',
+                                    'reviewer'   => 'John Doe',
+                                    'reviewRole' => 'Drilling Manager',
+                                    'reviewIcon' => 'icons/icon-petrochina.png',
+                                ])
+                            </div>
+                        @endfor
                     </div>
+
+                    @include('components.slide-button', ['target' => 'testimonies-content'])
+
+                    @include('components.slide-partners')
                 </section>
             </div>
         </div>

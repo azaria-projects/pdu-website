@@ -1,6 +1,10 @@
 .landing-contents {
     .banner-container {
         height: 350px;
+
+        img {
+            object-fit: cover;
+        }
     }
 
     .company-name { 
@@ -96,14 +100,15 @@
             }
         }
 
-        .row > div.shaded {
+        .row > div:nth-child(even){
             background-color: #FFF7F5;
         }
     }
 
     #partners-testimonies {
+        padding-top: 64px;
+
         .title {
-            font-size: 32px !important;
             padding-left: 64px;
             padding-right: 64px;
         }
@@ -138,7 +143,7 @@
     #company-services {
         .desc {
             letter-spacing: .25px;
-            color: #BBBBBB;
+            color: #E9E9E9;
         }
 
         #company-title {
@@ -194,11 +199,149 @@
     }
 }
 
-@media (max-width: 576px) {
+@media (min-width: 1200px) {
+    #company-statistics {
+        .row > div {
+            background-color: transparent !important;
+        }
+
+        .row > div:nth-child(1),
+        .row > div:nth-child(3n) {
+            background-color: #FFF7F5 !important;
+        }
+    }
+}
+
+@media (max-width: 992px) {
     section {
-        margin-bottom: 64px;
+        min-height: fit-content !important;
     }
 
+    .contents {
+        padding: 32px;
+    }
+
+    #web-contents {
+        #news-content {
+            .card {
+                width: 325px !important;
+                min-width: 325px !important;
+                border-radius: 10px !important;
+
+                .card-body {
+                    width: 100% !important;
+
+                    img {
+                        object-fit: cover;
+                    }
+
+                    .card-title {
+                        font-size: 20px;
+                    }
+
+                    .btn-redirect {
+                        i {
+                            font-size: 18px;
+                        }
+
+                        .btn-text {
+                            font-weight: 600;
+                            font-size: 14px;
+                        }
+                    }
+
+                    .description {
+                        font-size: 16px;
+                        font-weight: 400;
+                        text-align: left;
+                        letter-spacing: .15px;
+                    }
+                }
+            }
+        }
+    }
+
+    #company-statistics {
+        .row > div{
+            background-color: transparent !important;
+        }
+
+        .row > div:nth-child(1),
+        .row > div:nth-child(4n),
+        .row > div:nth-child(4n + 1) {
+            background-color: #FFF7F5 !important;
+        }
+    }
+
+    #partners-testimonies {        
+        .slide {
+            width: 250px;
+            height: 150px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #web-contents {
+        #news-content {
+            .card {
+                width: 325px !important;
+                min-width: 325px !important;
+                border-radius: 10px !important;
+
+                .card-body {
+                    width: 100% !important;
+
+                    img {
+                        object-fit: cover;
+                    }
+
+                    .card-title {
+                        font-size: 20px;
+                    }
+
+                    .btn-redirect {
+                        i {
+                            font-size: 18px;
+                        }
+
+                        .btn-text {
+                            font-weight: 600;
+                            font-size: 14px;
+                        }
+                    }
+
+                    .description {
+                        font-size: 16px;
+                        font-weight: 400;
+                        text-align: left;
+                        letter-spacing: .15px;
+                    }
+                }
+            }
+        }
+    }
+
+    #company-services {
+        .stats-title {
+            margin-bottom: 16px !important;
+        }
+    }
+
+    #company-statistics {
+        .row > div {
+            background-color: transparent !important;
+        }
+
+        .row > div:nth-child(1),
+        .row > div:nth-child(4n),
+        .row > div:nth-child(4n + 1) {
+            background-color: #FFF7F5 !important;
+        }
+    }
+}
+
+@media (max-width: 576px) {
     .contents {
         padding-left: 20px !important;
         padding-right: 20px !important;
@@ -294,7 +437,6 @@
     }
 
     #company-services {
-        display: none;
         padding: 16px !important;
 
         #company-title {
@@ -303,7 +445,6 @@
         }
 
         .stats-title {
-            font-size: 32px !important;
             margin-bottom: 16px !important;
         }
 
@@ -313,9 +454,11 @@
         }
 
         .service-desc {
-            font-weight: 300 !important;
-            text-align: justify;
+            font-size: 14px !important;
+            font-weight: 400 !important;
+            text-align: left;
             margin: 0px;
+            letter-spacing: .75px !important;
         }
 
         .service-feat {
@@ -327,7 +470,7 @@
                 width: 100% !important;
                 
                 i {
-                    font-size: 64px !important;
+                    font-size: 48px !important;
                 }
 
                 .stat-value {
@@ -345,6 +488,7 @@
 
     #company-statistics {
         .row > div {
+            background-color: transparent !important;
             padding: 32px !important; 
 
             i.icon {
@@ -364,8 +508,14 @@
             }
         }
 
-        .row > div.shaded {
-            background-color: #FFF7F5;
+        .row > div:nth-child(1),
+        .row > div:nth-child(4n),
+        .row > div:nth-child(4n + 1) {
+            background-color: transparent !important;
+        }
+
+        .row > div:nth-child(odd) {
+            background-color: #FFF7F5 !important;
         }
     }
 
@@ -384,12 +534,12 @@
                 padding: 16px;
 
                 img {
-                    width: 60px;
+                    width: 50px;
                     margin-bottom: 16px !important;
                 }
 
                 .review-name {
-                    font-size: 28px;
+                    font-size: 24px;
                 }
 
                 .review-desc {
