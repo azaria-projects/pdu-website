@@ -168,7 +168,7 @@
                         <small class="desc ms-4 mt-1"><i class="ti ti-click"></i> click to view</small>
 
                         <div id="service-mudlogging" class="service-data mt-3">
-                            <img src="{{ asset('images/card-services/mudlogging.png') }}" class="service-img rounded mb-4" alt="service-mudlogging-image">
+                            <img src="{{ asset('images/card-services/mudlogging.webp') }}" class="service-img rounded mb-4" alt="service-mudlogging-image">
                             <p class="service-desc">Our mud logging services provide detailed, real-time geological data to support safer and more efficient drilling operations. From accurate lithology descriptions to gas detection and monitoring, our experienced mudloggers deliver comprehensive reports that help identify formation tops and potential hazards. We maintain constant communication with drilling and geology teams, ensuring that decisions can be made based on up-to-date and reliable surface data.</p>
 
                             <div class="service-feat mt-2">
@@ -200,7 +200,7 @@
                         </div>
 
                         <div id="service-mwd" class="service-data d-none mt-3">
-                            <img src="{{ asset('images/card-services/mwd.png') }}" class="service-img rounded mb-4" alt="service-mudlogging-image">
+                            <img src="{{ asset('images/card-services/mwd.webp') }}" class="service-img rounded mb-4" alt="service-mudlogging-image">
                             <p class="service-desc">Our directional drilling support enhances accuracy and efficiency during complex well paths. We deliver real-time geological insights to keep your wellbore aligned with target formations. By working closely with drilling teams, we help reduce deviations and minimize non-productive time. Trust our mudlogging expertise to drive smarter, safer drilling decisions.</p>
 
                             <div class="service-feat mt-2">
@@ -220,7 +220,7 @@
                         </div>
 
                         <div id="service-plt" class="service-data d-none mt-3">
-                            <img src="{{ asset('images/card-services/plt.png') }}" class="service-img rounded mb-4" alt="service-mudlogging-image">
+                            <img src="{{ asset('images/card-services/plt.webp') }}" class="service-img rounded mb-4" alt="service-mudlogging-image">
                             <p class="service-desc">We provide expert support in interpreting Production Logging Tool (PLT) data to reveal detailed flow profiles. Our team integrates downhole data with surface mudlogging information for a full picture of well performance. This helps identify productive zones, fluid types, and potential issues. Rely on us to turn data into decisions that optimize your production.</p>
                         </div>
                     </div>
