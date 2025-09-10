@@ -111,7 +111,8 @@ section.visible {
     .app-content > div {
         align-items: center;
 
-        section {
+        section,
+        .menu-content {
             opacity: 1;
             transform: unset;
             transition: unset;

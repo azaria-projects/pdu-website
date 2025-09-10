@@ -43,9 +43,9 @@
                 <div id="content-descriptions" class="content pt-0 d-none" >
                     <div class="d-flex flex-column">
                         <h2 class="title mb-2">MUD LOGGER</h2>
-                        <div class="ps-4">
+                        <div class="desc-data">
                             <p class="description">As a Mud Logger, you will be responsible for monitoring and recording drilling activities and geological formations during well operations. You’ll collect and analyze cuttings samples, monitor gas readings, and ensure accurate documentation of drilling parameters. Real-time data interpretation and reporting are essential parts of the role. You’ll work closely with drilling and geology teams to support safe and informed decision-making. The position requires strong attention to detail, willingness to work in remote locations, and the ability to work long shifts. A degree in geology or a related field is preferred; prior field experience is a plus.</p>
-                            <span class=""><i class="ti ti-list-check"></i> requirements</span>
+                            <span class="req-data"><i class="ti ti-list-check"></i> requirements</span>
                             <ol class="mt-1">
                                 <li>Bachelor’s degree in Geology, Geoscience, or a related field</li>
                                 <li>Strong observational and analytical skills</li>
@@ -60,9 +60,9 @@
 
                     <div class="d-flex flex-column">
                         <h2 class="title mb-2">DATA ENGINEER</h2>
-                        <p class="description ps-4">The Data Engineer manages real-time data acquisition systems and ensures the integrity and quality of all collected drilling and formation data. You’ll calibrate sensors, maintain hardware/software, and troubleshoot any data transmission issues. Coordination with field teams and clients to deliver timely, accurate reports is a key part of the job. You'll also help integrate geological and drilling data for interpretation. Candidates should have a background in geoscience, computer science, or petroleum engineering. Familiarity with mudlogging software and rig site data systems is highly desirable.</p>
-                        <div class="ps-4">
-                            <span class=""><i class="ti ti-list-check"></i> requirements</span>
+                        <p class="description">The Data Engineer manages real-time data acquisition systems and ensures the integrity and quality of all collected drilling and formation data. You’ll calibrate sensors, maintain hardware/software, and troubleshoot any data transmission issues. Coordination with field teams and clients to deliver timely, accurate reports is a key part of the job. You'll also help integrate geological and drilling data for interpretation. Candidates should have a background in geoscience, computer science, or petroleum engineering. Familiarity with mudlogging software and rig site data systems is highly desirable.</p>
+                        <div class="desc-data">
+                            <span class="req-data"><i class="ti ti-list-check"></i> requirements</span>
                             <ol class="mt-1">
                                 <li>Degree in Geoscience, Computer Science, Petroleum Engineering, or related discipline</li>
                                 <li>Experience with real-time data acquisition systems and software (e.g., Rigwatch, Pason, WITS/WITSML)</li>

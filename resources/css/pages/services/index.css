@@ -1,0 +1,25 @@
+.img-content {
+    height: 580px;
+
+    img {
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 992px) {
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 576px) {
+    .menu-content {
+        padding: 32px !important;
+    }
+
+    .img-content {
+        height: 280px !important;
+    }
+}

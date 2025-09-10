@@ -1,0 +1,57 @@
+aside.app-sidebar {
+    background-color: #FCFCFC;
+
+    .sidebar-icons {
+        display: flex;
+        margin-top: auto;
+        margin-bottom: 12px;
+        justify-content: center;
+
+        .nav-link {
+            width: fit-content;
+
+            i {
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+.sidebar-brand {
+    height: 60px;
+    padding-bottom: 0px;
+}
+
+.sidebar-menu {
+    .nav-item {
+        margin-bottom: 4px;
+        
+        .nav-link {
+            i {
+                font-size: 20px;
+            }
+
+            span {
+                font-weight: 400;
+                letter-spacing: .25px;
+            }
+        }
+    }
+
+    .nav-item.menu-open {
+        border-radius: 4px;
+        background-color: #EF5A2A;
+        
+        .nav-link {
+            color: white !important;
+
+            span {
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+
+

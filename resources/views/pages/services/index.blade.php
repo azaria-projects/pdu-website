@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-12 col-md-7 mb-4">
+                        <div class="col-12 col-sm-12 col-md-7 col-xl-8 mb-4">
                             <p class="description mt-4">Our mud logging services provide detailed, real-time geological data to support safer and more efficient drilling operations. From accurate lithology descriptions to gas detection and monitoring, our experienced mudloggers deliver comprehensive reports that help identify formation tops and potential hazards. We maintain constant communication with drilling and geology teams, ensuring that decisions can be made based on up-to-date and reliable surface data.</p>
 
                             <div class="menu-feat">
@@ -64,7 +64,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-sm-12 col-md-5" style="height: 580px">
+                        <div class="col-12 col-sm-12 col-md-5 col-xl-4 img-content">
                             <img src="{{ asset('images/mudlogging-1.jpeg') }}" class="rounded w-100 h-100" alt="service-mudlogging-image">
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-12 col-md-7 mb-4">
+                        <div class="col-12 col-sm-12 col-md-7 col-xl-8 mb-4">
                             <p class="description mt-4">Our directional drilling support enhances accuracy and efficiency during complex well paths. We deliver real-time geological insights to keep your wellbore aligned with target formations. By working closely with drilling teams, we help reduce deviations and minimize non-productive time. Trust our mudlogging expertise to drive smarter, safer drilling decisions.</p>
 
                             <div class="menu-feat">
@@ -97,7 +97,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-sm-12 col-md-5" style="height: 580px">
+                        <div class="col-12 col-sm-12 col-md-5 col-xl-4 img-content">
                             <img src="{{ asset('images/service-2.jpeg') }}" class="rounded w-100 h-100" alt="service-mwd-image">
                         </div>
                     </div>
@@ -112,11 +112,11 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-12 col-md-7 mb-4">
+                        <div class="col-12 col-sm-12 col-md-7 col-xl-8 mb-4">
                             <p class="description mt-4">We provide expert support in interpreting Production Logging Tool (PLT) data to reveal detailed flow profiles. Our team integrates down hole data with surface mud logging information for a full picture of well performance. This helps identify productive zones, fluid types, and potential issues. Rely on us to turn data into decisions that optimize your production.</p>
                         </div>
 
-                        <div class="col-12 col-sm-12 col-md-5" style="height: 580px">
+                        <div class="col-12 col-sm-12 col-md-5 col-xl-4 img-content">
                             <img src="{{ asset('images/plt-2.jpeg') }}" class="rounded w-100 h-100" alt="service-plt-image">
                         </div>
                     </div>

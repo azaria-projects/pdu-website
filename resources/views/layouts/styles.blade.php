@@ -12,7 +12,8 @@
         'resources/css/components/navbar.css',
         'resources/css/components/footer.css',
         'resources/css/components/button.css',
-
+        'resources/css/components/sidebar.css',
+        
         'resources/css/pages/index.css',
     ])
 @endpush

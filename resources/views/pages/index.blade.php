@@ -156,7 +156,7 @@
                     </div>
                 </section>
 
-                {{-- services [responsive problem!] --}}
+                {{-- services --}}
                 <section id="company-services" class="contents">
                     <div class="d-flex flex-column">
                         <h1 class="stats-title mb-2"><b>OUR SERVICES</b></h1>

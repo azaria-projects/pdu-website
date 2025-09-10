@@ -25,10 +25,11 @@
 
             <div class="menu-content px-0 pb-0">
                 <div id="content-overview" class="content">
-                    <div class="d-flex flex-column align-items-center mb-4" style="padding: 0px 64px;">
+                    <div class="content-data">
                         <h2 class="title ">PARAMA DATA UNIT (PDU)</h2>
                         <small class="sub-title">lorem ipsum lorem ipsum lorem ipsum lorem ipsum.</small>
-                        <p class="description text-center mt-4">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum.  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum. Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum. Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum.</p>
+                        <p class="description mt-4">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum.  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum. Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum. Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum.</p>
+                        
                         <div class="row menu-feat">
                             <div class="col-12 col-sm-12 col-md-4 col-lg-3 feat">
                                 <i class="ti ti-drop-circle"></i>
@@ -55,9 +56,24 @@
                             </div>
                         </div>
 
-                        <p class="text-center mt-4">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum.  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum. Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum. Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum. </p>
-                        <q class="text-center"><b>Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum.</b></q>
+                        <p class="details mt-4">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum.  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum. Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum. Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum. </p>
+                        <q class="vision-mission"><b>Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum.</b></q>
                     </div>
+
+                    <div id="company-addresses">
+                        <div class="address">
+                            <i class="ti ti-map-2"></i>
+                            <span class="address-type">Office : </span>
+                            <span class="address-data">Jl. alternatif cibubur km 3.5 cibubur times square blok c1 no 19-21 Jatisampurna, Kota Bks, RT.001/RW.010, Jatikarya, Kec. Jatisampurna, Kota Bks, Jawa Barat 17435</span>
+                        </div>
+
+                        <div class="address">
+                            <i class="ti ti-map-2"></i>
+                            <span class="address-type">Workshop : </span>
+                            <span class="address-data">Jl. Cemp. No.1, RT.002/RW.008, Jatisampurna, Kec. Jatisampurna, Kota Bks, Jawa Barat 17435</span>
+                        </div>
+                    </div>
+
                     <img src="{{ asset('images/company-2.jpeg') }}" class="w-100" style="object-fit: cover;" height="450" alt="image-career-pdu">
                 </div>
             </div>
