@@ -22,14 +22,12 @@
 
 #company-addresses {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    text-align: center;
+    padding: 0px 64px;
     margin-bottom: 32px;
 
     .address {
-        display: flex;
-        align-items: center;
-
         .address-type {
             font-size: 14px;
             font-weight: 500;
@@ -55,7 +53,9 @@
 }
 
 @media (max-width: 768px) {
-
+    #company-addresses {
+        padding: 0px 16px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -69,5 +69,9 @@
         .vision-mission {
             text-align: start;
         }
+    }
+
+    #company-addresses {
+        padding: 0px 16px;
     }
 }

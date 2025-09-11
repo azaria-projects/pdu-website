@@ -61,17 +61,16 @@
                     </div>
 
                     <div id="company-addresses">
-                        <div class="address">
+                        <p class="address">
                             <i class="ti ti-map-2"></i>
                             <span class="address-type">Office : </span>
                             <span class="address-data">Jl. alternatif cibubur km 3.5 cibubur times square blok c1 no 19-21 Jatisampurna, Kota Bks, RT.001/RW.010, Jatikarya, Kec. Jatisampurna, Kota Bks, Jawa Barat 17435</span>
-                        </div>
-
-                        <div class="address">
+                        </p>
+                        <p class="address">
                             <i class="ti ti-map-2"></i>
                             <span class="address-type">Workshop : </span>
                             <span class="address-data">Jl. Cemp. No.1, RT.002/RW.008, Jatisampurna, Kec. Jatisampurna, Kota Bks, Jawa Barat 17435</span>
-                        </div>
+                        </p>
                     </div>
 
                     <img src="{{ asset('images/company-2.jpeg') }}" class="w-100" style="object-fit: cover;" height="450" alt="image-career-pdu">
