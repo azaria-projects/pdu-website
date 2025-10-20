@@ -1,0 +1,119 @@
+aside.app-sidebar {
+    background-color: var(--white-0);
+    border-right: 1px solid var(--bs-border-color);
+
+    .sidebar-icons {
+        display: flex;
+        margin-top: auto;
+        margin-bottom: 12px;
+        justify-content: center;
+
+        .nav-link {
+            width: fit-content;
+
+            i {
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+.sidebar-brand {
+    padding: 0px;
+    border-bottom: none;
+
+    .brand-text {
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: .5px;
+    }
+
+    .brand-image {
+        height: 24px;
+    }
+}
+
+.sidebar-menu {
+    .nav-item {
+        .nav-link {
+            i {
+                font-size: 20px;
+            }
+
+            span {
+                font-weight: 400;
+                letter-spacing: .5px;
+            }
+        }
+
+        .nav-link.active,
+        .nav-link.has-active {
+            color: var(--orange-1);
+            background-color: var(--white-9);
+
+            span {
+                font-weight: 500;
+            }
+        }
+
+        /* .nav-link:focus {
+            color: var(--lte-sidebar-color) !important;
+            background-color: transparent !important;
+        } */
+    }
+
+    .nav-item.sidebar-icons {
+        background-color: transparent;
+
+        .nav-link {
+            background-color: transparent;
+        }
+    }
+
+    .nav-item.menu-open {
+        > .nav-link {
+            border-radius: 4px;
+            color: white;
+            background-color: var(--orange-1);
+
+            span {
+                letter-spacing: .25px;
+                font-weight: 500;
+            }
+        }
+
+        > .nav-link:not(.has-active) {
+            color: var(--orange-1);
+            background-color: var(--white-9);
+
+            span {
+                font-weight: 500;
+            }
+        }
+
+        ul.nav.nav-treeview {
+            .nav-link {
+                color: var(--lte-sidebar-color);
+                background-color: transparent;
+            }
+
+            .nav-link.active {
+                color: var(--orange-1);
+                font-weight: 500;
+                background-color: var(--white-9);
+            }
+
+            .nav-link:hover {
+                color: var(--orange-1);
+                background-color: var(--white-9);
+            }
+        }
+    }
+}
+
+.sidebar-mini.sidebar-collapse .brand-text, 
+.sidebar-mini.sidebar-collapse .logo-xl, 
+.sidebar-mini.sidebar-collapse .nav-arrow, 
+.sidebar-mini.sidebar-collapse .sidebar-menu .nav-link p {
+    margin: 0px;
+}

@@ -1,0 +1,85 @@
+nav.app-header.navbar {
+    .navbar-nav {
+        .nav-link.nav-menu {
+            font-size: 14px; 
+            font-weight: 600; 
+            letter-spacing: 1px; 
+            color: var(--black-1);
+        }
+
+        .nav-link.nav-submenu {
+            font-size: 14px; 
+            font-weight: 600; 
+            letter-spacing: 1px; 
+            color: var(--black-1);
+
+            padding: 0px;
+            display: flex;
+            height: 100%;
+            align-items: center;
+        }
+
+        .nav-link.icon-only {
+            font-size: 26px;
+            
+            i {
+                display: flex;
+            }
+        }
+
+        .nav-link.seperator {
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            .line {
+                border-radius: 64px;
+                border-left: 1.95px solid var(--white-10);
+                height: 50%;
+            }
+        }
+    }
+    
+    .navbar-content {
+        height: 62px;
+        display: flex;
+        width: 100%;
+
+        border-bottom: 1px solid var(--white-6) !important;
+    }
+
+    .navbar-subcontent {
+        height: 62px;
+        width: 100%;
+        border-bottom: 1px solid var(--white-6) !important;
+
+        .nav-link {
+            text-transform: uppercase;
+            letter-spacing: 0.25px !important;
+            font-size: 12px !important;
+            font-weight: 400 !important;
+        }
+    }
+
+    #career-submenu,
+    #company-submenu,
+    #service-submenu {
+        transition: opacity 1s ease, transform 1s ease;
+
+        .nav-link.nav-submenu:hover {
+            color: var(--orange-1);
+            text-decoration: underline;
+        }
+    }
+}
+
+.nav-menu:hover {
+    font-weight: 700 !important;
+    color: var(--orange-1) !important;
+}
+
+@media (max-width: 576px) {
+    .nav-mobile {
+        flex-grow: 1;
+    }
+}

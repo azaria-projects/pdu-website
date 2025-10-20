@@ -61,7 +61,7 @@
                     </div>
 
                     <div id="company-addresses">
-                        <p class="address">
+                        <p class="address mb-1">
                             <i class="ti ti-map-2"></i>
                             <span class="address-type">Office : </span>
                             <span class="address-data">Jl. alternatif cibubur km 3.5 cibubur times square blok c1 no 19-21 Jatisampurna, Kota Bks, RT.001/RW.010, Jatikarya, Kec. Jatisampurna, Kota Bks, Jawa Barat 17435</span>

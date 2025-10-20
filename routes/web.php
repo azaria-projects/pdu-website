@@ -2,33 +2,28 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\CareerController;
-use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\WebController;
+use App\Http\Controllers\AdminController;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(WebController::class)->group(function () {
+    Route::get('/', 'index')->name('web.index');
+    Route::get('/careers', 'careers')->name('web.careers.index');
+    Route::get('/company', 'company')->name('web.companies.index');
+    Route::get('/services', 'services')->name('web.services.index');
 });
 
-Route::controller(HomeController::class)->group(function () {
-    Route::get('/', 'index')->name('index');
-});
-
-Route::prefix('services')->group(function () {
-    Route::controller(ServiceController::class)->group(function () {
-        Route::get('/', 'index')->name('services.index');
-    });
-});
-
-Route::prefix('careers')->group(function () {
-    Route::controller(CareerController::class)->group(function () {
-        Route::get('/', 'index')->name('careers.index');
-    });
-});
-
-Route::prefix('company')->group(function () {
-    Route::controller(CompanyController::class)->group(function () {
-        Route::get('/', 'index')->name('companies.index');
+Route::prefix('admin')->group(function () {
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('/', 'index')->name('admin.index');
+        Route::get('/news', 'news')->name('admin.news');
+        Route::get('/codes', 'codes')->name('admin.codes');
+        Route::get('/files', 'files')->name('admin.files');
+        Route::get('/users', 'users')->name('admin.users');
+        Route::get('/careers', 'careers')->name('admin.careers');
+        Route::get('/services', 'services')->name('admin.services');
+        Route::get('/partners', 'partners')->name('admin.partners');
+        Route::get('/companies', 'companies')->name('admin.companies');
+        Route::get('/statistics', 'statistics')->name('admin.statistics');
+        Route::get('/testimonies', 'testimonies')->name('admin.testimonies');
     });
 });

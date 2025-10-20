@@ -1,0 +1,432 @@
+.btn-redirect {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+
+    color: #212020; 
+    border: 1px solid #212020; 
+    border-radius: 64px;
+
+    i {
+        font-size: 20px;
+    }
+
+    span {
+        font-size: 16px; 
+        font-weight: 500; 
+        letter-spacing: .5px; 
+        height: fit-content !important;
+    }
+}
+
+.btn-redirect:hover {
+    background-color: #EF5A2A !important;
+    color: white !important; 
+    border: none !important;
+
+    font-weight: 400 !important;
+}
+
+.btn-direct {
+    color: #212020; 
+    border: 1px solid #212020; 
+    border-radius: 64px;
+
+    i.btn-icon {
+        font-size: 24px;
+    }
+
+    span.btn-text {
+        font-size: 16px; 
+        font-weight: 600; 
+        letter-spacing: 1px; 
+        height: fit-content !important;
+    }
+}
+
+.btn-slide-group {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    justify-content: end;
+
+    .btn-slide {
+        padding: 4px;
+        display: flex;
+
+        i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+    }
+
+    .btn-slide.left {
+        color: #F35728;
+        border: none;
+        border-radius: 4px;
+        background-color: #F5F5F5;
+    }
+
+    .btn-slide.right {
+        border: none;
+        border-radius: 4px;
+        background-color: #F35728;
+    }
+}
+
+.btn-select-group {
+    padding: 4px;
+    border-radius: 32px;
+    background-color: #F8F8F8;
+    display: flex;
+    gap: 4px;
+    width: fit-content;
+    border: 2px solid #F7F7F7;
+
+    button,
+    button:active {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        border-radius: 32px;
+        font-size: 1rem;
+        font-weight: 500;
+        background-color: transparent;
+        color: #D4D4D4 !important;
+        border: none !important;
+        box-shadow: none;
+
+        i {
+            font-size: 24px;
+        }
+    }
+
+    button.active,
+    button.active:active {
+        background-color: #F35728;
+        border: 2px solid #FFB098;
+        color: white !important;
+        font-size: 1rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: .25px;
+    }
+
+    button:not(.active):hover {
+        color: #D4D4D4;
+    }
+}   
+
+.btn-select-group {
+    padding: 4px;
+    border-radius: 32px;
+    background-color: #F8F8F8;
+    display: flex;
+    gap: 4px;
+    width: fit-content;
+    border: 2px solid #F7F7F7;
+
+    button,
+    button:active {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        border-radius: 32px;
+        font-size: 1rem;
+        font-weight: 500;
+        background-color: transparent;
+        color: #D4D4D4 !important;
+        border: none !important;
+        box-shadow: none;
+
+        i {
+            font-size: 24px;
+        }
+    }
+
+    button.active,
+    button.active:active {
+        background-color: #F35728;
+        border: 2px solid #FFB098;
+        color: white !important;
+        font-size: 1rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: .25px;
+    }
+
+    button:not(.active):hover {
+        color: #D4D4D4;
+    }
+} 
+
+.btn-select-group-admin {
+    padding: 4px;
+    border-radius: 32px;
+    background-color: #fdfdfd;
+    display: flex;
+    gap: 4px;
+    width: fit-content;
+    border: 1px solid var(--bs-border-color);
+
+    button,
+    button:active {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        border-radius: 32px;
+        font-size: .875rem;
+        font-weight: 500;
+        background-color: transparent;
+        color: #D4D4D4 !important;
+        border: none !important;
+        box-shadow: none;
+
+        i {
+            font-size: 20px;
+        }
+    }
+
+    button.active,
+    button.active:active {
+        background-color: #F35728;
+        border: 2px solid #FFB098;
+        color: white !important;
+        font-size: .875rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: .25px;
+    }
+
+    button:not(.active):hover {
+        color: #D4D4D4;
+    }
+} 
+
+.btn-view {
+    color: white;
+    padding: 10px 12px;
+    border-radius: 4px;
+    background-color: var(--teal-1);
+    box-shadow: none;
+
+    border: 2px solid #33C9C2;
+
+    i {
+        font-size: 24px;
+    }
+}
+
+.btn-view:hover,
+.btn-view:active,
+.btn-view:focus-visible {
+    color: var(--teal-1) !important;
+    border: 2px solid #33C9C2 !important;
+    background-color: transparent !important;
+}
+
+.btn-edit {
+    color: white;
+    padding: 10px 12px;
+    border-radius: 4px;
+    background-color: var(--yellow-1);
+    box-shadow: none;
+
+    border: 2px solid #FFE9AB;
+
+    i {
+        font-size: 24px;
+    }
+}
+
+.btn-edit:hover,
+.btn-edit:active,
+.btn-edit:focus-visible {
+    color: var(--yellow-1) !important;
+    border: 2px solid #FFE9AB !important;
+    background-color: transparent !important;
+}
+
+.btn-delete {
+    color: white;
+    padding: 10px 12px;
+    border-radius: 4px;
+    box-shadow: none;
+
+    border: 2px solid #FF9B9D;
+    background-color: var(--red-1);
+
+    i {
+        font-size: 24px;
+    }
+}
+
+.btn-delete:hover,
+.btn-delete:active,
+.btn-delete:focus-visible {
+    color: var(--red-1) !important;
+    border: 2px solid #FF9B9D !important;
+    background-color: transparent !important;
+}
+
+.btn-outline {
+    border-radius: 4px;
+    color: var(--black-1);
+    min-height: 40px;
+    font-size: 20px;
+    border: 1px solid var(--black-1);
+    box-shadow: none;
+}
+
+.btn-outline:hover,
+.btn-outline:active,
+.btn-outline:focus-visible {
+    /* color: var(--white-1);
+    background-color: var(--black-1); */
+
+    color: var(--orange-1);
+    border-color: var(--orange-1);
+}
+
+.btn-submit {
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: none;
+    background-color: var(--blue-1);
+    color: white;
+
+    i {
+        display: flex;
+        font-size: 20px;
+    }
+
+    span {
+        font-size: 16px;
+        font-weight: 500;
+        text-transform: lowercase;
+    }
+}
+
+.btn-submit:hover {
+    border: 1px solid var(--blue-1);
+    color: var(--blue-1);
+}
+
+.btn-exist {
+    box-shadow: none;
+    font-size: 24px;
+
+    color: white;
+    padding: 10px 12px;
+    background-color: #6756FF;
+    border: 2px solid #B1A9FF;
+}
+
+.btn-exist:hover,
+.btn-exist:active,
+.btn-exist:focus-visible {
+    color: #6756FF !important;
+    background-color: transparent !important;
+    border: 2px solid #B1A9FF !important;
+}
+
+.btn-missing {
+    box-shadow: none;
+    font-size: 24px;
+
+    color: white;
+    padding: 10px 12px;
+    background-color: #CBCBCB;
+    border: 2px solid #E2E2E2;
+}
+
+.btn-missing:hover,
+.btn-missing:active,
+.btn-missing:focus-visible {
+    color: white !important;
+    cursor: default !important;
+    background-color: #CBCBCB !important;
+    border: 2px solid #E2E2E2 !important;
+}
+
+.btn-status,
+.btn-status:hover {
+    cursor: pointer !important;
+}
+
+.btn-add {
+    color: white;
+    padding: 10px 12px;
+    border-radius: 4px;
+    background-color: var(--blue-1);
+    box-shadow: none;
+
+    border: 2px solid #9EBBFF;
+
+    i {
+        font-size: 24px;
+    }
+}
+
+.btn-add:hover,
+.btn-add:active,
+.btn-add:focus-visible {
+    background-color: transparent;
+    color: var(--blue-1);
+    border: 2px solid #9EBBFF;
+}
+
+@media (max-width: 768px) {
+    .btn-select-group {
+        flex-direction: column;
+        width: 100%;
+
+        border: none;
+        border-radius: 0px;
+        background-color: transparent;
+
+        .btn {
+            border-radius: 6px !important;
+        }
+
+        button, button:active {
+            font-size: 16px;
+            
+            i {
+                font-size: 24px;
+            }
+        }
+
+        button.active,
+        button.active:active {
+            font-size: 16px;
+        }
+    }   
+}
+
+@media (max-width: 576px) {
+    .btn-select-group {
+        .btn {
+            border-radius: 6px !important;
+        }
+
+        button, button:active {
+            font-size: 14px;
+            
+            i {
+                font-size: 20px;
+            }
+        }
+
+        button.active,
+        button.active:active {
+            font-size: 14px;
+        }
+    }   
+}

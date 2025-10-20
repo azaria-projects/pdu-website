@@ -14,6 +14,13 @@ export default defineConfig({
                 'resources/css/components/button.css',
                 'resources/css/components/sidebar.css',
 
+                'resources/css/components-admin/form.css',
+                'resources/css/components-admin/table.css',
+                'resources/css/components-admin/navbar.css',
+                'resources/css/components-admin/footer.css',
+                'resources/css/components-admin/button.css',
+                'resources/css/components-admin/sidebar.css',
+
                 'resources/css/pages/index.css',
                 'resources/css/pages/company/index.css',
                 'resources/css/pages/services/index.css',
