@@ -203,7 +203,7 @@
             const dat = tbl.row($(this).parent().parent()).data();
             const prm = await Swal.fire(adm.getSwalPromptConf(
                 'warning', 'Delete Data?', 
-                `delete ${dat.name} ${slf.prefix} data?`
+                `delete ${dat.name} ${slf.tne} data?`
             ));
 
             if (prm.isConfirmed) {
@@ -217,7 +217,7 @@
                 if (res.status === 'success') {
                     Swal.fire(adm.getSwalConf(
                         'success', 'Deleted!', 
-                        `${slf.prefix} data has been successfully deleted.`
+                        `${slf.tne} data has been successfully deleted.`
                     ));
 
                     $('.btn-refresh').trigger('click');
@@ -235,11 +235,11 @@
             const dat = tbl.row($(this).parent().parent()).data();
 
             let sub = 'Publish Data?';
-            let sbb = `publish ${dat.name} ${slf.prefix} data?`;
+            let sbb = `publish ${dat.name} ${slf.tne} data?`;
 
             if (dat.status === 'active') {
                 sub = 'Private Data?';
-                sbb = `make ${dat.name} ${slf.prefix} data private?`;
+                sbb = `make ${dat.name} ${slf.tne} data private?`;
             }
             
             const prm = await Swal.fire(
@@ -260,7 +260,7 @@
                 if (res.status === 'success') {
                     Swal.fire(adm.getSwalConf(
                         'success', 'Updated!', 
-                        `${slf.prefix} data has been successfully updated.`
+                        `${slf.tne} data has been successfully updated.`
                     ));
 
                     $('.btn-refresh').trigger('click');

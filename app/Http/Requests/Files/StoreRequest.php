@@ -12,7 +12,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'file' => 'required|file|mimes:pdf,svg,jpeg,jpg',
-            'type' => 'required|string|in:banner,thumbnail,icon,document,sliders,others',
+            'type' => 'required|string|in:banner,thumbnail,icon,logo,document,sliders,others',
         ];
     }
 

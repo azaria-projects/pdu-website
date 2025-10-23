@@ -75,7 +75,7 @@
             placeholder: 'ex: mudlogging-banner.jpg',
             allowClear: true,
             ajax: {
-                url: 'http://127.0.0.1:8000/api/files',
+                url: adm.getApiUrl('files'),
                 dataType: 'json',
                 data: function (params) {
                     var query = {

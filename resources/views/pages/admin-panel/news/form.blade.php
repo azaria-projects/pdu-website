@@ -92,7 +92,7 @@
                         <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                             <div id="tab-upload-banner" class="my-3">
                                 <label for="add-image" class="form-label d-flex align-items-center gap-1"><i class="ti ti-photo-spark"></i> service banner</label>
-                                <input id="add-image" name="add-image" type="file" class="form-control">
+                                <input id="add-image" name="add-image" type="file" class="form-control" accept="image/*">
                             </div>
                         </div>
                     </div>

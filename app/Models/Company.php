@@ -61,6 +61,6 @@ class Company extends Model
 
     public function files(): BelongsTo
     {
-        return $this->belongsTo(File::class);
+        return $this->belongsTo(File::class, 'icon_id');
     }
 }

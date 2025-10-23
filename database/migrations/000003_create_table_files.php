@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->id();
             $table->string('path', 256)->unique();
-            $table->enum('type', ['banner', 'thumbnail', 'icon', 'document', 'sliders',  'others']);
+            $table->enum('type', ['banner', 'thumbnail', 'icon', 'logo', 'document', 'sliders', 'others']);
             $table->string('name', 128)->unique();
             $table->integer('size');
             $table->string('extension', 6);

@@ -73,14 +73,6 @@
                         </button>
                     </div>
 
-                    <div class="img-prev mt-3">
-                        <div id="img-thumb" class="thumbnail">
-                            <i class="ti ti-album me-1 d-none"></i>
-                            <span id="img-thumb-text">selected banner will appear in here</span>    
-                        </div>
-                        <img id="img-prev" src="#" alt="" class="preview d-none">
-                    </div>
-
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                             <div id="tab-select-banner" class="d-flex flex-column my-3">
@@ -92,7 +84,7 @@
                         <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                             <div id="tab-upload-banner" class="my-3">
                                 <label for="add-image" class="form-label d-flex align-items-center gap-1"><i class="ti ti-photo-spark"></i> service banner</label>
-                                <input id="add-image" name="add-image" type="file" class="form-control">
+                                <input id="add-image" name="add-image" type="file" class="form-control" accept="image/*">
                             </div>
                         </div>
                     </div>

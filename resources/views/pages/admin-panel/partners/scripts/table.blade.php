@@ -19,7 +19,7 @@
                 orderable: false, 
                 render: function (data, type, row, meta) {
                     if (data !== null) {
-                        return `<img src="${data.path}" alt="" class="img-fluid">`;
+                        return `<img src="${data.path}" alt="" class="img-fluid column-logo">`;
                     }
 
                     return `<button class='btn btn-missing'><i class='ti ti-exclamation-circle'></i></button>`;
@@ -87,6 +87,20 @@
             },
             { data: 'address', name: 'address_data', visible: false },
             { data: 'address', name: 'address', visible: false },
+            { data: 'partners', name: 'partners_status', visible: false },
+            {
+                data: 'partners', 
+                name: 'partners', 
+                visible: true,
+                orderable: false, 
+                render: function (data, type, row, meta) {
+                    if (data) {
+                        return `<button class='btn btn-exist'><i class='ti ti-checks'></i></button>`;
+                    }
+
+                    return `<button class='btn btn-missing'><i class='ti ti-exclamation-circle'></i></button>`;
+                } 
+            },
             { data: 'created_at' , name: 'created_at' , visible: false },
             { data: 'updated_at' , name: 'updated_at' , visible: false },
             { 
@@ -116,10 +130,8 @@
         ];
 
         this.def = [
-            { width: '10%', targets: [2, 6, 10, 12, 14] },
-            // // { width: '10%', targets: [3] },
-            // // { width: '20%', targets: [7] },
-            { class: 'text-center', targets: [2, 6, 10, 12, 14, 19] },
+            { width: '10%', targets: [2, 6, 10, 12, 14, 18] },
+            { class: 'text-center', targets: [2, 6, 10, 12, 14, 18, 21] },
         ];
     }
 
@@ -179,20 +191,33 @@
             const pre = 'view';
             const dat = tbl.row($(this).parent().parent()).data();
 
-            const img = document.getElementById(`${pre}-img`);
-            const nme = document.getElementById(`${pre}-name`);
-            const lnk = document.getElementById(`${pre}-link`);
-            const des = document.getElementById(`${pre}-desc`);
             const hdr = document.getElementById(`${pre}-header`);
             const sdr = document.getElementById(`${pre}-subheader`);
+
+            const ins = document.getElementById(`${pre}-in`);
+            const lin = document.getElementById(`${pre}-ln`);
+            const fac = document.getElementById(`${pre}-fb`);
+            const nme = document.getElementById(`${pre}-name`);
+            const mtt = document.getElementById(`${pre}-motto`);
+            const eml = document.getElementById(`${pre}-email`);
+            const vis = document.getElementById(`${pre}-vision`);
+            const mis = document.getElementById(`${pre}-mission`);
+            const act = document.getElementById(`${pre}-active`);
+            const Icn = document.getElementById(`${pre}-icon`);
 
             hdr.innerText = `${dat.name} ${this.tne}`;
             sdr.innerText = `Selected ${this.tne} data`;
 
-            img.src   = dat.image !== null ? dat.image.path : '';
-            lnk.value = dat.link;
-            nme.value = dat.name;
-            des.value = dat.description; 
+            nme.value = dat.name ?? '';
+            mtt.value = dat.motto ?? '';
+            eml.value = dat.email ?? '';
+            vis.value = dat.vision ?? '';
+            mis.value = dat.mission ?? '';
+            lin.value = dat.linkedin ?? '';
+            fac.value = dat.facebook ?? '';
+            ins.value = dat.instagram ?? '';
+            Icn.value = dat.icon_data ?? '';
+            act.value = dat.partners_status !== null ? dat.partners_status : '';
 
             $('#form-view').toggleClass('d-none');
             $('#main-content').toggleClass('d-none');
@@ -202,12 +227,20 @@
             const pre = 'add';
             const dat = tbl.row($(this).parent().parent()).data();
 
-            const nme = document.getElementById(`${pre}-name`);
-            const des = document.getElementById(`${pre}-desc`);
             const hdr = document.getElementById(`${pre}-header`);
             const sdr = document.getElementById(`${pre}-subheader`);
-            const lnk = document.getElementById(`${pre}-link-select`);
-            const sta = document.getElementById(`${pre}-status-select`);
+
+            const inpIns = document.getElementById(`${pre}-in`);
+            const inpLin = document.getElementById(`${pre}-ln`);
+            const inpFac = document.getElementById(`${pre}-fb`);
+            const inpNme = document.getElementById(`${pre}-name`);
+            const inpMtt = document.getElementById(`${pre}-motto`);
+            const inpEml = document.getElementById(`${pre}-email`);
+            const inpVis = document.getElementById(`${pre}-vision`);
+            const inpMis = document.getElementById(`${pre}-mission`);
+
+            const slcAct = document.getElementById(`${pre}-active-select`);
+            const slcIcn = document.getElementById(`${pre}-icon-select`);
 
             adm.setRowData(dat);
             adm.setState(dat.id);
@@ -215,18 +248,17 @@
             hdr.innerText = `Edit ${slf.tne}`;
             sdr.innerText = `change ${dat.name} ${slf.tne} details`;
 
-            if (dat.link) {
-                lnk.value = dat.link;
-                lnk.dispatchEvent(new Event('change'));
-            }
+            inpNme.value = dat.name ?? '';
+            inpMtt.value = dat.motto ?? '';
+            inpEml.value = dat.email ?? '';
+            inpVis.value = dat.vision ?? '';
+            inpMis.value = dat.mission ?? '';
+            inpLin.value = dat.linkedin ?? '';
+            inpFac.value = dat.facebook ?? '';
+            inpIns.value = dat.instagram ?? '';
 
-            if (dat.status) {
-                sta.value = dat.status;
-                sta.dispatchEvent(new Event('change'));
-            }
-            
-            nme.value = dat.name ?? '';
-            des.value = dat.description ?? ''; 
+            slcAct.value = dat.partners;
+            slcAct.dispatchEvent(new Event('change'));
 
             $('#form-content').toggleClass('d-none');
             $('#main-content').toggleClass('d-none');
@@ -236,7 +268,7 @@
             const dat = tbl.row($(this).parent().parent()).data();
             const prm = await Swal.fire(adm.getSwalPromptConf(
                 'warning', 'Delete Data?', 
-                `delete ${dat.name} ${slf.prefix} data?`
+                `delete ${dat.name} ${slf.tne} data?`
             ));
 
             if (prm.isConfirmed) {
@@ -250,10 +282,19 @@
                 if (res.status === 'success') {
                     Swal.fire(adm.getSwalConf(
                         'success', 'Deleted!', 
-                        `${slf.prefix} data has been successfully deleted.`
+                        `${slf.tne} data has been successfully deleted.`
                     ));
 
                     $('.btn-refresh').trigger('click');
+                    return;
+                } 
+
+                if (res && Object.keys(res).includes('status')) {
+                    Swal.fire(adm.getSwalPromptConf(
+                        'warning', 'Invalid Input', 
+                        res.message, false, 'OK'
+                    ));
+
                     return;
                 }
 
@@ -268,11 +309,11 @@
             const dat = tbl.row($(this).parent().parent()).data();
 
             let sub = 'Publish Data?';
-            let sbb = `publish ${dat.name} ${slf.prefix} data?`;
+            let sbb = `publish ${dat.name} ${slf.tne} data?`;
 
             if (dat.status === 'active') {
                 sub = 'Private Data?';
-                sbb = `make ${dat.name} ${slf.prefix} data private?`;
+                sbb = `make ${dat.name} ${slf.tne} data private?`;
             }
             
             const prm = await Swal.fire(
@@ -293,7 +334,7 @@
                 if (res.status === 'success') {
                     Swal.fire(adm.getSwalConf(
                         'success', 'Updated!', 
-                        `${slf.prefix} data has been successfully updated.`
+                        `${slf.tne} data has been successfully updated.`
                     ));
 
                     $('.btn-refresh').trigger('click');

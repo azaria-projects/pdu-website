@@ -19,28 +19,15 @@
         <div class="row mx-0">
             <div class="col-12 col-sm-12 col-md-6">
                 <div class="d-flex flex-column mb-3">
-                    <label for="view-icon" class="form-label"><i class="ti ti-favicon me-1"></i> service icon </label>
-                    <input id="view-icon" type="text" class="form-control" disabled>
+                    <label for="view-file" class="form-label d-flex align-items-center gap-1"><i class="ti ti-file-info"></i> file </label>
+                    <input id="view-file" name="view-file" type="text" class="form-control" disabled>
                 </div>
             </div>
 
             <div class="col-12 col-sm-12 col-md-6">
-                <div class="mb-3">
-                    <label for="view-name" class="form-label d-flex align-items-center gap-1"><i class="ti ti-tag-starred"></i> service name</label>
-                    <input id="view-name" type="text" class="form-control" disabled>
-                </div>
-            </div>
-
-            <div class="col-12">
-                <div class="mb-3">
-                    <label for="view-desc" class="form-label d-flex align-items-center gap-1"><i class="ti ti-text-scan-2"></i> description</label>
-                    <textarea id="view-desc" type="text" class="form-control" disabled></textarea>
-                </div>
-            </div>
-
-            <div class="col-12">
-                <div class="img-prev mt-3">
-                    <img id="view-img" src="" alt="" class="preview">
+                <div class="d-flex flex-column mb-3">
+                    <label for="view-type" class="form-label"><i class="ti ti-squares-selected me-1"></i> Type </label>
+                    <input id="view-type" name="view-type" type="text" class="form-control" disabled>
                 </div>
             </div>
         </div>

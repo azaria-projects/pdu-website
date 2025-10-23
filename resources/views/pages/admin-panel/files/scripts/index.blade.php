@@ -1,4 +1,4 @@
-@include('pages.admin-panel.services.scripts.table')
+@include('pages.admin-panel.files.scripts.table')
 
 <script>
     /*
@@ -8,7 +8,7 @@
 
     function Index() { 
         this.table  = null;
-        this.prefix = 'services';
+        this.prefix = 'files';
     }
 
     //-- other functions
@@ -22,15 +22,6 @@
         }
     };
 
-    Index.prototype.setFormatSelectIcon = function (sta) {
-        if (!sta.id) { 
-            return sta.text; 
-        }
-
-        const html = $(`<span><i class='${sta.text} me-2'></i>${sta.text}</span>`);
-        return html;
-    };
-
     //-- all init functions
     Index.prototype.init = async function () {
         this.table = new Table('table-datatable');
@@ -41,137 +32,65 @@
     }
 
     Index.prototype.initSelect2 = async function () {
-        const self = this;
-         
-        $('#add-image-select').on('select2:select', function (e) {
-            const dat = e.params.data;
-            const img = document.getElementById('img-prev');
-            const tmp = document.getElementById('img-thumb');
-            const inp = document.getElementById('add-image');
-            
-            img.src   = dat.url;
-            inp.value = '';
+        const slf = this;
 
-            if (img.classList.contains('d-none')) {
-                self.toggleVisibility('img-prev');
-                self.toggleVisibility('img-thumb');
-            }
-        });
-
-        $('#add-image-select').on('select2:clear', function (e) {
-            const img = document.getElementById('img-prev');
-            const tmp = document.getElementById('img-thumb');
-
-            img.src = '';
-            
-            if (!img.classList.contains('d-none')) {
-                self.toggleVisibility('img-prev');
-                self.toggleVisibility('img-thumb');
-            }
-        });
-
-        $('select[id=add-image-select]').select2({
-            placeholder: 'ex: mudlogging-banner.jpg',
+        $('select[id=add-type-select]').select2({
+            placeholder: 'ex: active',
             allowClear: true,
-            ajax: {
-                url: 'http://127.0.0.1:8000/api/files',
-                dataType: 'json',
-                data: function (params) {
-                    var query = {
-                        'keyword': params.term,
-                    };
-
-                    return query;
+            data: [
+                {
+                    'id'   : 'banner',
+                    'text' : 'banner'
                 },
-                processResults: function (data) {
-                    const arr = [];
-                    const dat = data.response.data;
-
-                    dat.forEach(elm => {
-                        arr.push({
-                            'id'   : elm.id,
-                            'url'  : elm.path,
-                            'text' : elm.name
-                        });
-                    });
-
-                    return { results: arr };
-                }
-            }
-        });
-
-        $('select[id=add-icon-select]').select2({
-            placeholder: 'ex: ti ti-home',
-            allowClear: true,
-            templateResult: this.setFormatSelectIcon,
-            ajax: {
-                url: 'http://127.0.0.1:8000/api/codes',
-                dataType: 'json',
-                data: function (params) {
-                    var query = {
-                        'type'    : 'icons',
-                        'keyword' : params.term,
-                    };
-
-                    return query;
+                {
+                    'id'   : 'thumbnail',
+                    'text' : 'thumbnail'
                 },
-                processResults: function (data) {
-                    const arr = [];
-                    const dat = data.response.data;
-
-                    dat.forEach(elm => {
-                        arr.push({
-                            'id'   : elm.value,
-                            'text' : elm.value
-                        });
-                    });
-
-                    return { results: arr };
+                {
+                    'id'   : 'icon',
+                    'text' : 'icon'
+                },
+                {
+                    'id'   : 'logo',
+                    'text' : 'logo'
+                },
+                {
+                    'id'   : 'document',
+                    'text' : 'document'
+                },
+                {
+                    'id'   : 'slider',
+                    'text' : 'slider'
+                },
+                {
+                    'id'   : 'others',
+                    'text' : 'others'
                 }
-            }
+            ]
         });
     };
 
     Index.prototype.initListeners = async function () {
-        const self = this;
+        const slf = this;
 
         const btnAdd = document.getElementById('btn-add');
         const frmAdd = document.getElementById('form-add');
-        const inpImg = document.getElementById('add-image');
         const btnRef = document.getElementById('btn-refresh');
-        const btnBck = document.querySelectorAll('.btn-back');
 
         btnAdd.addEventListener('click', function() {
             adm.setState(null);
             
-            self.toggleVisibility('main-content');
-            self.toggleVisibility('form-content');
-        });
-
-        inpImg.addEventListener('change', function() {
-            const fle = this.files[0];
-            const rdr = new FileReader();
-            const img = document.getElementById('img-prev');
-            const sct = document.getElementById('add-image-select');
-
-            rdr.addEventListener("load", function () { img.src = rdr.result; }, false);
-            if (fle) { rdr.readAsDataURL(fle); }
-
-            if (img.classList.contains('d-none')) {
-                self.toggleVisibility('img-prev');
-                self.toggleVisibility('img-thumb');
-            }
-
-            sct.value = '';
-            sct.dispatchEvent(new Event('change'));
+            slf.toggleVisibility('main-content');
+            slf.toggleVisibility('form-content');
         });
 
         frmAdd.addEventListener('submit', async function(e) {
             e.preventDefault(); 
 
-            let res, prm, url;
+            let prm, res, url;
 
-            // const pyd = {};
+            const pre = 'add';
+            const frm = new FormData();
             const val = adm.validateForm(this.id);
             const mtd = adm.getState() ? 'PUT' : 'POST';
 
@@ -186,159 +105,54 @@
 
             prm = await Swal.fire(adm.getSwalPromptConf(
                 'question', 'Save Data?', 
-                `store current service data?`
+                `store current ${slf.prefix} data?`
             ));
 
-            if (!prm.isConfirmed) {
-                return;
-            }
+            if (!prm.isConfirmed) { return; }
 
-            const inpNme = document.getElementById('add-name').value;
-            const inpDes = document.getElementById('add-desc').value;
-            const inpImg = document.getElementById('add-image').files[0];
-            const slcIcn = document.getElementById('add-icon-select').value;
-            const slcImg = document.getElementById('add-image-select').value;
-
-            const pyd = {
-                'name'        : inpNme,
-                'icon'        : slcIcn,
-                'description' : inpDes
-            };
+            const inpFle = document.getElementById(`${pre}-file`).files[0];
+            const slcTyp = document.getElementById(`${pre}-type-select`).value;
 
             if (adm.getState()) {
-                const dat = adm.getRowData();
-
-                pyd.name        = inpNme ?? dat.name;
-                pyd.description = inpDes ?? dat.description;
-                pyd.icon        = slcIcn !== '' ? slcIcn : dat.icon;
-
-                if (slcImg) {
-                    pyd.image_id = slcImg;
-                }
-
-                if (!slcImg && dat.image) {
-                    pyd.image_id = dat.image.id;
-                }
+                frm.append('_method', 'PUT');
+                if (inpFle) { frm.append('file', inpFle); }
+                frm.append('type', slcTyp); 
+                
+            } else {
+                frm.append('file', inpFle);
+                frm.append('type', slcTyp); 
             }
+            
+            Swal.fire(adm.getSwalLoadingConf(
+                'uploading', 'please wait!'
+            ));
+            
+            res = await adm.request('POST', adm.getApiUrl('files'), frm)
+                            .then(data => data)
+                            .catch(error => error);
 
-            if (inpImg && slcImg) {
-                Swal.fire(adm.getSwalConf(
-                    'error', 'Invalid Selection!', 
-                    'please select just 1 image banner!'
+            if (res && Object.keys(res).includes('status')) {
+                if (res.status === 'success') {
+                    Swal.fire(adm.getSwalConf(
+                        'success', 'Stored!', 
+                        `${slf.prefix} data has been successfully stored.`
+                    ));
+
+                    return;
+                }
+
+                Swal.fire(adm.getSwalPromptConf(
+                    'warning', 'Invalid Input', 
+                    res.message, false, 'OK'
                 ));
 
                 return;
-            }
-
-            //-- case 1: user upload image
-            if (inpImg && !slcImg) {
-                prm = await Swal.fire(adm.getSwalPromptConf(
-                    'warning', 'New Image!', 
-                    `new image detected, upload the image first?`
-                ));
-                
-                if (prm.isConfirmed) {
-                    Swal.fire(adm.getSwalLoadingConf(
-                        'uploading', 'please wait!'
-                    ));
-
-                    const frm = new FormData();
-                    frm.append('type', 'banner');
-                    frm.append('file', inpImg); 
-                    
-                    res = await adm.request('POST', adm.getApiUrl('files'), frm)
-                                    .then(data => data)
-                                    .catch(error => error);
-
-                    if (res.status === 'success') {
-                        Swal.fire(adm.getSwalLoadingConf(
-                            'processing', 'saving services data!'
-                        ));
-
-                        pyd.image_id = res.response.id;
-                        url = adm.getState() 
-                                ? `${adm.getApiUrl(self.prefix)}/${adm.getState()}`
-                                : adm.getApiUrl(self.prefix);
-
-                        res = await adm.request(mtd, url, JSON.stringify(pyd))
-                                        .then(data => data)
-                                        .catch(error => error);
-                        
-                        Swal.fire(adm.getSwalConf(
-                            'success', 'Stored!', 
-                            'service data has been successfully stored.'
-                        ));
-
-                        btnRef.click();
-                        document.getElementById('btn-back-1').click();
-                        
-                        return;
-                    }
-                }
-            }
-
-            //-- case 2: user select exsisting image
-            if (slcImg && !inpImg) {
-                Swal.fire(adm.getSwalLoadingConf(
-                    'processing', 'saving services data!'
-                ));
-
-                pyd.image_id = slcImg;
-
-                console.log(pyd);
-
-                url = adm.getState() 
-                        ? `${adm.getApiUrl(self.prefix)}/${adm.getState()}`
-                        : adm.getApiUrl(self.prefix);
-
-                res = await adm.request(mtd, url, JSON.stringify(pyd))
-                                .then(data => data)
-                                .catch(error => error);
-
-                if (res.status === 'success') {
-                    Swal.fire(adm.getSwalConf(
-                        'success', 'Stored!', 
-                        'service data has been successfully stored.'
-                    ));
-
-                    btnRef.click();
-                    document.getElementById('btn-back-1').click();
-                    
-                    return;
-                }
-            }
-
-            //-- case 3: user does not provide image data
-            if ((slcImg === '' && inpImg === undefined)) {
-                Swal.fire(adm.getSwalLoadingConf(
-                    'processing', 'saving services data!'
-                ));
-                
-                url = adm.getState() 
-                        ? `${adm.getApiUrl(self.prefix)}/${adm.getState()}`
-                        : adm.getApiUrl(self.prefix);
-
-                res = await adm.request(mtd, url, JSON.stringify(pyd))
-                                .then(data => data)
-                                .catch(error => error);
-
-                if (res.status === 'success') {
-                    Swal.fire(adm.getSwalConf(
-                        'success', 'Stored!', 
-                        'service data has been successfully stored.'
-                    ));
-
-                    btnRef.click();
-                    document.getElementById('btn-back-1').click();
-                    
-                    return;
-                }
             }
 
             Swal.fire(adm.getSwalConf(
                 'error', 'Unable to Perform Changes!', 
                 'please contact the administrator!'
-            ));   
+            ));
         });
 
         document.querySelectorAll('.btn-back').forEach(btn => {
@@ -346,12 +160,12 @@
                 const viw = document.getElementById('form-view');
 
                 if (!viw.classList.contains('d-none')) {
-                    self.toggleVisibility('main-content');
-                    self.toggleVisibility('form-view');
+                    slf.toggleVisibility('main-content');
+                    slf.toggleVisibility('form-view');
 
                 } else {
-                    self.toggleVisibility('main-content');
-                    self.toggleVisibility('form-content');
+                    slf.toggleVisibility('main-content');
+                    slf.toggleVisibility('form-content');
                 }
 
                 document.querySelectorAll('form').forEach(frm => {
@@ -362,15 +176,6 @@
                     sct.value = '';
                     sct.dispatchEvent(new Event('change'));
                 });
-
-                const img = document.getElementById('img-prev')
-                
-                img.src = '';
-
-                // if (img.src === '') {
-                //     self.toggleVisibility('img-prev');
-                //     self.toggleVisibility('img-thumb');
-                // }
             });
         });
     };

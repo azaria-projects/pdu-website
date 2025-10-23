@@ -13,7 +13,7 @@ class UpdateRequest extends FormRequest
         return [
             'name'       => 'nullable|string|max:128',
             'role'       => 'nullable|string|max:32',
-            'testimony'  => 'nullable|string|max:284',
+            'testimony'  => 'nullable|string|max:384',
             'company_id' => 'nullable|integer|exists:companies,id',
             'status'     => 'nullable|string|in:active,inactive',
         ];

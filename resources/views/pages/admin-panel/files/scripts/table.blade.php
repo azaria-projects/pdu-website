@@ -1,39 +1,62 @@
 <script>
+    /*
+        - require admin script!
+    */
+
     function Table(
         id = '',
-        baseUrl = 'http://127.0.0.1:8000',
-        basePrefix = 'api'
     ) {
-        this.currRow   = null;
-        this.baseUrl    = baseUrl;
-        this.basePrefix = basePrefix;
-        this.tableId    = id; 
-        this.columns    = [
+        this.crr = null;
+        this.tne = 'files'
+        this.tid = id; 
+        this.col = [
             { data: 'id', name: 'id', visible: false },
-            { 
-                data: 'icon', name: 'icon', visible: true,
+            {
+                data: 'name', 
+                name: 'name', 
+                visible: true,
+                orderable: false, 
                 render: function (data, type, row, meta) {
-                    const html = `<i class='ti ${data}'></i>`;
-                    return html;
+                    const dat = data.split('.');
+                    return dat[0];
                 } 
             },
-            { data: 'name', name: 'name', visible: true },
-            { data: 'image', name: 'image', visible: false },
-            { 
-                data: 'image', name: 'banner', visible: true,
+            {
+                data: 'size', 
+                name: 'size', 
+                visible: true,
+                orderable: false, 
                 render: function (data, type, row, meta) {
-                    if (data !== null) {
-                        return `<button class='btn btn-exist'><i class='ti ti-checks'></i></button>`;
-                    }
-
-                    return `<button class='btn btn-missing'><i class='ti ti-exclamation-circle'></i></button>`;
+                    const dat = data.split(' ');
+                    return `~ ${ parseInt(dat[0] / 1024).toFixed(2)} Mb` ;
                 } 
             },
-            { data: 'description', name: 'description', visible: true },
+            { data: 'type', name: 'type', visible: true },
+            {
+                data: 'path', 
+                name: 'path', 
+                visible: true,
+                orderable: false, 
+                render: function (data, type, row, meta) {
+                    return `<a href='${data}' class='btn btn-exist' target='_blank'><i class='ti ti-link'></i></a>`;
+                } 
+            },
+            {
+                data: 'extension', 
+                name: 'extension', 
+                visible: true,
+                orderable: false, 
+                render: function (data, type, row, meta) {
+                    return `.${data}`;
+                } 
+            },
             { data: 'created_at' , name: 'created_at' , visible: false },
             { data: 'updated_at' , name: 'updated_at' , visible: false },
             { 
-                data: null, name: 'action', visible: true,
+                data: null, 
+                name: 'action', 
+                visible: true, 
+                orderable: false,
                 render: function (data, type, row, meta) {
                     const btn = `
                         <div class="td-groups">
@@ -55,20 +78,22 @@
             },
         ];
 
-        this.columnDefs = [
-            { width: '10%', targets: [2] },
-            { width: '5%', targets: [1,4] },
-            { width: '20%', targets: [8] },
-            { class: 'text-center', targets: [1] }
+        this.def = [
+            { width: '10%', targets: [2, 3, 4, 5] },
+            { width: '15%', targets: [8] },
+            // { width: '20%', targets: [7] },
+            { class: 'text-center', targets: [2, 4, 5, 8] },
         ];
     }
 
     Table.prototype.initTable = async function () {
-        const bse = `${this.baseUrl}/${this.basePrefix}/services`;
-        const tbl = $(`#${this.tableId}`).DataTable({
+        const slf = this;
+
+        const bse = adm.getApiUrl(this.tne);
+        const tbl = $(`#${this.tid}`).DataTable({
             pagingType: 'full',
             paging: true,
-            ordering: false,
+            ordering: true,
             searching: false,
             processing: true,
             serverSide: true,
@@ -78,10 +103,10 @@
                 const key = document.getElementById('filter-search').value;
                 const pge = Math.floor(data.start / data.length) + 1;
                 const par = new URLSearchParams({
-                    'limit'    : 10,
-                    'order'    : 'asc',
+                    'limit'    : data.length,
+                    'order'    : data.order[0].dir,
                     'keyword'  : key,
-                    'order_by' : 'id'
+                    'order_by' : data.order[0].name
                 }).toString();
 
                 $.ajax({
@@ -96,12 +121,9 @@
                     }
                 });
             },
-            columns: this.columns,
-            columnDefs: this.columnDefs,
-            layout: {
-                topStart: null,
-                topEnd: 'pageLength'
-            },
+            columns: this.col,
+            columnDefs: this.def,
+            layout: { topStart: null, topEnd: 'pageLength' },
             initComplete: function() {
                 this.api().responsive.recalc();
                 $(window).trigger('resize');
@@ -117,57 +139,44 @@
         });
 
         $(document).on('click', '.btn-view', function() {
+            const pre = 'view';
             const dat = tbl.row($(this).parent().parent()).data();
 
-            const img = document.getElementById('view-img');
-            const icn = document.getElementById('view-icon');
-            const nme = document.getElementById('view-name');
-            const des = document.getElementById('view-desc');
-            const hdr = document.getElementById('view-header');
-            const sdr = document.getElementById('view-subheader');
-            const vcn = document.getElementById('view-header-icon');
-            const vcl = dat.icon.split(' ');
+            const hdr = document.getElementById(`${pre}-header`);
+            const sdr = document.getElementById(`${pre}-subheader`);
+            
+            const fle = document.getElementById(`${pre}-file`);
+            const typ = document.getElementById(`${pre}-type`);
 
-            hdr.innerText = `${dat.name} Services`;
-            sdr.innerText = 'company services';
+            hdr.innerText = `${dat.name} ${this.tne}`;
+            sdr.innerText = `Selected ${this.tne} data`;
 
-            img.src   = dat.image !== null ? dat.image.path : '';
-            icn.value = dat.icon;
-            nme.value = dat.name;
-            des.value = dat.description; 
-
-            vcn.classList.remove(...vcn.classList);
-            vcn.classList.add('ti');
-            vcl.forEach(cls => { vcn.classList.add(cls); });
-            vcn.classList.add('me-3');
+            fle.value = dat.path;
+            typ.value = dat.type;
 
             $('#form-view').toggleClass('d-none');
             $('#main-content').toggleClass('d-none');
         });
 
         $(document).on('click', '.btn-edit', function() {
+            const pre = 'add';
             const dat = tbl.row($(this).parent().parent()).data();
 
-            const nme = document.getElementById('add-name');
-            const des = document.getElementById('add-desc');
-            const prv = document.getElementById('img-prev');
-            const icn = document.getElementById('add-icon-select');
-            const img = document.getElementById('add-image-select');
-
-            const hdr = document.getElementById('add-header');
-            const sdr = document.getElementById('add-subheader');
+            const hdr = document.getElementById(`${pre}-header`);
+            const sdr = document.getElementById(`${pre}-subheader`);
+            
+            const fle = document.getElementById(`${pre}-file`);
+            const typ = document.getElementById(`${pre}-type-select`);
 
             adm.setRowData(dat);
             adm.setState(dat.id);
 
-            hdr.innerText = `Edit Services`;
-            sdr.innerText = `change ${dat.name} service details`;
+            hdr.innerText = `Edit ${slf.tne}`;
+            sdr.innerText = `change ${dat.name} ${slf.tne} details`;
 
-            prv.src   = dat.path ?? '';
-            nme.value = dat.name;
-            des.value = dat.description;
+            typ.value = dat.type;
+            typ.dispatchEvent(new Event('change'));
 
-            
             $('#form-content').toggleClass('d-none');
             $('#main-content').toggleClass('d-none');
         });
@@ -176,7 +185,7 @@
             const dat = tbl.row($(this).parent().parent()).data();
             const prm = await Swal.fire(adm.getSwalPromptConf(
                 'warning', 'Delete Data?', 
-                `delete ${dat.name} service data?`
+                `delete ${dat.name} ${slf.tne} data?`
             ));
 
             if (prm.isConfirmed) {
@@ -187,11 +196,22 @@
                 const url = `${bse}/${dat.id}`;
                 const res = await adm.request('DELETE', url).then(data => data).catch(error => error);
 
-                if (res.status === 'success') {
-                    Swal.fire(adm.getSwalConf(
-                        'success', 'Deleted!', 
-                        'service data has been successfully deleted.'
+                if (res && Object.keys(res).includes('status')) {
+                    if (res.status === 'success') {
+                        Swal.fire(adm.getSwalConf(
+                            'success', 'Deleted!', 
+                            `${slf.tne} data has been successfully deleted.`
+                        ));
+
+                        $('.btn-refresh').trigger('click');
+                        return;
+                    }
+
+                    Swal.fire(adm.getSwalPromptConf(
+                        'warning', 'Unable to Delete!', 
+                        `the ${slf.tne} might still be used somewhere else . . .`, false, 'OK'
                     ));
+
 
                     $('.btn-refresh').trigger('click');
                     return;

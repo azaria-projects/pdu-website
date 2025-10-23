@@ -17,12 +17,13 @@ class CompanyResource extends JsonResource
             'motto'      => $this->motto,
             'email'      => $this->email,
             'vision'     => $this->vision,
-            'icon'       => is_null($this->icon) ? null : new FileResource($this->icon),
+            'icon'       => is_null($this->files) ? null : new FileResource($this->files),
             'address'    => is_null($this->address) ? null : new AddressResource($this->address),
             'mission'    => $this->mission,
             'facebook'   => $this->facebook,
             'linkedin'   => $this->linkedin,
             'instagram'  => $this->instagram,
+            'partners'   => $this->is_partner,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];

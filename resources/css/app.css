@@ -206,8 +206,37 @@ section.visible {
     }
 }
 
+.icon-prev {
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 6px;
+    background-color: var(--bs-border-color);
+
+    .preview {
+        max-height: 50px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+}
+
 .required {
     color: var(--red-1);
+}
+
+.note-modal {
+    .modal-dialog {
+        box-shadow: none;
+    }
+}
+
+.option.select2-image {
+    max-height: 50px;
+    object-fit: cover;
+}
+
+.column-logo {
+    height: 50px;
 }
 
 @keyframes scroll-left {

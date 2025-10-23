@@ -12,7 +12,7 @@ class StoreRequest extends FormRequest
         return [
             'name'       => 'required|string|max:128',
             'role'       => 'required|string|max:32',
-            'testimony'  => 'nullable|string|max:284',
+            'testimony'  => 'nullable|string|max:384',
             'company_id' => 'required|integer|exists:companies,id',
             'status'     => 'nullable|string|in:active,inactive',
         ];

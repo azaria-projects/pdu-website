@@ -74,7 +74,7 @@
             placeholder: 'ex: mudlogging-banner.jpg',
             allowClear: true,
             ajax: {
-                url: 'http://127.0.0.1:8000/api/files',
+                url: adm.getApiUrl('files'),
                 dataType: 'json',
                 data: function (params) {
                     var query = {
@@ -105,7 +105,7 @@
             allowClear: true,
             templateResult: this.setFormatSelectIcon,
             ajax: {
-                url: 'http://127.0.0.1:8000/api/codes',
+                url: adm.getApiUrl('codes'),
                 dataType: 'json',
                 data: function (params) {
                     var query = {

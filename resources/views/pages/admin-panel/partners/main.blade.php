@@ -46,6 +46,8 @@
                             <th id="instagram"     class="text-center">Instagram</th>
                             <th id="address-data"  class="text-center">Address Data</th>
                             <th id="address"       class="text-center">Address</th>
+                            <th id="partner-data"  class="text-center">Partner Data</th>
+                            <th id="partner"       class="text-center">Active Partner</th>
                             <th id="created-at"    class="text-center">created-at</th>
                             <th id="updated-at"    class="text-center">updated-at</th>
                             <th id="action"        class="text-center">#</th>

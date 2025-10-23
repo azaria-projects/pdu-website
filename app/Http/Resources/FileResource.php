@@ -14,6 +14,7 @@ class FileResource extends JsonResource
             'id'         => $this->id,
             'name'       => $this->name,
             'size'       => $this->size . ' KB',
+            'type'       => $this->type,
             'path'       => Storage::disk('public')->url($this->path),
             'extension'  => $this->extension,
             'created_at' => $this->created_at,

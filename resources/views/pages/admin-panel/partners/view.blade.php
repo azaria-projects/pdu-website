@@ -17,30 +17,74 @@
 
     <div class="p-4">
         <div class="row mx-0">
-            <div class="col-12 col-sm-12 col-md-6">
+           <div class="col-12 col-sm-12 col-md-6 col-lg-4">
                 <div class="mb-3">
-                    <label for="view-name" class="form-label d-flex align-items-center gap-1"><i class="ti ti-tag-starred"></i> title </label>
-                    <input id="view-name" name="view-name" type="text" class="form-control" disabled>
+                    <label for="view-name" class="form-label d-flex align-items-center gap-1"><i class="ti ti-building-estate"></i> name </label>
+                    <input id="view-name" type="text" class="form-control" disabled>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="mb-3">
+                    <label for="view-motto" class="form-label d-flex align-items-center gap-1"><i class="ti ti-octahedron"></i> motto </label>
+                    <input id="view-motto" type="text" class="form-control" disabled>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="mb-3">
+                    <label for="view-active" class="form-label d-flex align-items-center gap-1"><i class="ti ti-cube-spark"></i> active partner? </label>
+                    <input id="view-active" type="text" class="form-control" disabled>
                 </div>
             </div>
 
             <div class="col-12 col-sm-12 col-md-6">
                 <div class="mb-3">
-                    <label for="view-link" class="form-label d-flex align-items-center gap-1"><i class="ti ti-link-plus"></i> link </label>
-                    <input id="view-link" name="view-link" type="text" class="form-control" disabled>
+                    <label for="view-vision" class="form-label d-flex align-items-center gap-1"><i class="ti ti-stars"></i> vision </label>
+                    <textarea id="view-vision" type="text" class="form-control" disabled></textarea>
                 </div>
             </div>
 
-            <div class="col-12">
+            <div class="col-12 col-sm-12 col-md-6">
                 <div class="mb-3">
-                    <label for="view-desc" class="form-label d-flex align-items-center gap-1"><i class="ti ti-text-scan-2"></i> description <span class="required">*</span></label>
-                    <textarea id="view-desc" name="view-desc" type="text" class="form-control" disabled></textarea>
+                    <label for="view-mission" class="form-label d-flex align-items-center gap-1"><i class="ti ti-target-arrow"></i> mission </label>
+                    <textarea id="view-mission" type="text" class="form-control" disabled></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mx-0">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="mb-3">
+                    <label for="view-fb" class="form-label d-flex align-items-center gap-1"><i class="ti ti-brand-meta"></i> Facebook </label>
+                    <input id="view-fb" type="text" class="form-control" disabled>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="mb-3">
+                    <label for="view-ln" class="form-label d-flex align-items-center gap-1"><i class="ti ti-brand-linkedin"></i> LinkedIn </label>
+                    <input id="view-ln" type="text" class="form-control" disabled>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="mb-3">
+                    <label for="view-in" class="form-label d-flex align-items-center gap-1"><i class="ti ti-brand-instagram"></i> Instagram </label>
+                    <input id="view-in" type="text" class="form-control" disabled>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="mb-3">
+                    <label for="view-email" class="form-label d-flex align-items-center gap-1"><i class="ti ti-mail"></i> Email </label>
+                    <input id="view-email" type="text" class="form-control" disabled>
                 </div>
             </div>
 
             <div class="col-12">
-                <div class="img-prev mt-3">
-                    <img id="view-img" src="" alt="" class="preview">
+                <div class="icon-prev mt-3">
+                    <img id="view-icon" src="" alt="" class="preview-icon">
                 </div>
             </div>
         </div>

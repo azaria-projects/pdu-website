@@ -8,7 +8,7 @@
 
     function Index() { 
         this.table  = null;
-        this.prefix = 'company';
+        this.prefix = 'companies';
     }
 
     //-- other functions
@@ -27,7 +27,7 @@
             return sta.text; 
         }
 
-        const html = $(`<span><i class='${sta.text} me-2'></i>${sta.text}</span>`);
+        const html = $(`<div class="d-flex gap-2 align-items-center"><img src="${sta.url}" alt="${sta.text}" class="option select2-image"></img></i><span>${sta.text}</span></div>`);
         return html;
     };
 
@@ -43,41 +43,43 @@
     Index.prototype.initSelect2 = async function () {
         const slf = this;
 
-        $('#add-image-select').on('select2:select', function (e) {
-            const dat = e.params.data;
-            const img = document.getElementById('img-prev');
-            const tmp = document.getElementById('img-thumb');
-            const inp = document.getElementById('add-image');
+        // $('#add-image-select').on('select2:select', function (e) {
+        //     const dat = e.params.data;
+        //     const img = document.getElementById('img-prev');
+        //     const tmp = document.getElementById('img-thumb');
+        //     const inp = document.getElementById('add-image');
             
-            img.src   = dat.url;
-            inp.value = '';
+        //     img.src   = dat.url;
+        //     inp.value = '';
 
-            if (img.classList.contains('d-none')) {
-                slf.toggleVisibility('img-prev');
-                slf.toggleVisibility('img-thumb');
-            }
-        });
+        //     if (img.classList.contains('d-none')) {
+        //         slf.toggleVisibility('img-prev');
+        //         slf.toggleVisibility('img-thumb');
+        //     }
+        // });
 
-        $('#add-image-select').on('select2:clear', function (e) {
-            const img = document.getElementById('img-prev');
-            const tmp = document.getElementById('img-thumb');
+        // $('#add-image-select').on('select2:clear', function (e) {
+        //     const img = document.getElementById('img-prev');
+        //     const tmp = document.getElementById('img-thumb');
 
-            img.src = '';
+        //     img.src = '';
             
-            if (!img.classList.contains('d-none')) {
-                slf.toggleVisibility('img-prev');
-                slf.toggleVisibility('img-thumb');
-            }
-        });
+        //     if (!img.classList.contains('d-none')) {
+        //         slf.toggleVisibility('img-prev');
+        //         slf.toggleVisibility('img-thumb');
+        //     }
+        // }); 
 
-        $('select[id=add-image-select]').select2({
-            placeholder: 'ex: mudlogging-banner.jpg',
+        $('select[id=add-icon-select]').select2({
+            placeholder: 'ex: pt-petrochina-icon.svg',
             allowClear: true,
+            templateResult: this.setFormatSelectIcon,
             ajax: {
-                url: 'http://127.0.0.1:8000/api/files',
+                url: adm.getApiUrl('files'),
                 dataType: 'json',
                 data: function (params) {
                     var query = {
+                        'type': 'logo',
                         'keyword': params.term,
                     };
 
@@ -100,17 +102,17 @@
             }
         });
 
-        $('select[id=add-status-select]').select2({
+        $('select[id=add-active-select]').select2({
             placeholder: 'ex: active',
             allowClear: true,
             data: [
                 {
-                    'id'   : 'active',
-                    'text' : 'active'
+                    'id'   : 0,
+                    'text' : 'inactive'
                 },
                 {
-                    'id'   : 'inactive',
-                    'text' : 'inactive'
+                    'id'   : 1,
+                    'text' : 'active'
                 }
             ]
         });
@@ -151,54 +153,66 @@
 
             prm = await Swal.fire(adm.getSwalPromptConf(
                 'question', 'Save Data?', 
-                `store current ${slf.prefix} data?`
+                `store partner ${slf.prefix} data?`
             ));
 
             if (!prm.isConfirmed) { return; }
 
+            const inpIns = document.getElementById(`${pre}-in`).value;
+            const inpLin = document.getElementById(`${pre}-ln`).value;
+            const inpFac = document.getElementById(`${pre}-fb`).value;
             const inpNme = document.getElementById(`${pre}-name`).value;
-            const inpDsc = document.getElementById(`${pre}-desc`).value;
-            const inpImg = document.getElementById(`${pre}-image`).files[0];
-            const slcLnk = document.getElementById(`${pre}-link-select`).value;
-            const slcImg = document.getElementById(`${pre}-image-select`).value;
-            const slcSts = document.getElementById(`${pre}-status-select`).value;
+            const inpMtt = document.getElementById(`${pre}-motto`).value;
+            const inpEml = document.getElementById(`${pre}-email`).value;
+            const inpVis = document.getElementById(`${pre}-vision`).value;
+            const inpMis = document.getElementById(`${pre}-mission`).value;
 
-            pyd.name        = inpNme; 
-            pyd.link        = slcLnk;
-            pyd.description = inpDsc;
-            pyd.status      = slcSts !== '' ? slcSts : 'inactive';
+            const inpIcn = document.getElementById(`${pre}-icon`).files[0];
+            const slcLct = document.getElementById(`${pre}-active-select`).value;
+            const slcIcn = document.getElementById(`${pre}-icon-select`).value;
+
+            pyd.name      = inpNme;
+            pyd.motto     = inpMtt;
+            pyd.email     = inpEml;
+            pyd.vision    = inpVis;
+            pyd.mission   = inpMis;
+            pyd.linkedin  = inpLin;
+            pyd.facebook  = inpFac;
+            pyd.instagram = inpIns;
+
+            pyd.is_partner = slcLct !== '' ? slcLct : false;
+            pyd.icon_id    = slcIcn !== '' ? slcIcn : null;
 
             if (adm.getState()) {
                 const dat = adm.getRowData();
 
-                pyd.name        = inpNme ?? dat.name;
-                pyd.link        = slcLnk ?? dat.status;
-                pyd.description = inpDsc ?? dat.description;
-                pyd.status      = slcSts !== '' ? slcSts : dat.icon;
+                pyd.name      = inpNme ?? dat.name;
+                pyd.motto     = inpMtt ?? dat.motto;
+                pyd.email     = inpEml ?? dat.email;
+                pyd.vision    = inpVis ?? dat.vision;
+                pyd.mission   = inpMis ?? dat.mission;
+                pyd.linkedin  = inpLin ?? dat.linkedin;
+                pyd.facebook  = inpFac ?? dat.facebook;
+                pyd.instagram = inpIns ?? dat.instagram;
 
-                if (slcImg) {
-                    pyd.image_id = slcImg;
-                }
-
-                if (!slcImg && dat.image) {
-                    pyd.image_id = dat.image.id;
-                }
+                pyd.is_partner = slcLct !== '' ? slcLct : dat.is_partner;
+                pyd.icon_id    = slcIcn !== '' ? slcIcn : dat.icon_id;
             }
 
-            if (inpImg && slcImg) {
+            if (inpIcn && slcIcn) {
                 Swal.fire(adm.getSwalConf(
                     'error', 'Invalid Selection!', 
-                    'please select just 1 image banner!'
+                    'please select just 1 icon!'
                 ));
 
                 return;
             }
 
-            //-- case 1: user upload image
-            if (inpImg && !slcImg) {
+            //-- case 1: user upload logo
+            if (inpIcn && !slcIcn) {
                 prm = await Swal.fire(adm.getSwalPromptConf(
-                    'warning', 'New Image!', 
-                    `new image detected, upload the image first?`
+                    'warning', 'New Logo!', 
+                    `new logo detected, upload the logo first?`
                 ));
                 
                 if (prm.isConfirmed) {
@@ -207,8 +221,8 @@
                     ));
 
                     const frm = new FormData();
-                    frm.append('type', 'banner');
-                    frm.append('file', inpImg); 
+                    frm.append('type', 'logo');
+                    frm.append('file', inpIcn); 
                     
                     res = await adm.request('POST', adm.getApiUrl('files'), frm)
                                     .then(data => data)
@@ -219,7 +233,7 @@
                             'processing', `saving ${slf.prefix} data!`
                         ));
 
-                        pyd.image_id = res.response.id;
+                        pyd.icon_id = res.response.id;
                         url = adm.getState() 
                                 ? `${adm.getApiUrl(slf.prefix)}/${adm.getState()}`
                                 : adm.getApiUrl(slf.prefix);
@@ -237,17 +251,17 @@
                         document.getElementById('btn-back-1').click();
                         
                         return;
-                    }
+                    } 
                 }
             }
 
-            //-- case 2: user select exsisting image
-            if (slcImg && !inpImg) {
+            //-- case 2: user select exsisting logo
+            if (slcIcn && !inpIcn) {
                 Swal.fire(adm.getSwalLoadingConf(
                     'processing', `saving ${slf.prefix} data!`
                 ));
 
-                pyd.image_id = slcImg;
+                pyd.icon_id = slcIcn;
 
                 url = adm.getState() 
                         ? `${adm.getApiUrl(slf.prefix)}/${adm.getState()}`
@@ -270,8 +284,8 @@
                 }
             }
 
-            //-- case 3: user does not provide image data
-            if ((slcImg === '' && inpImg === undefined)) {
+            //-- case 3: user does not provide icon data
+            if ((slcIcn === '' && inpIcn === undefined)) {
                 Swal.fire(adm.getSwalLoadingConf(
                     'processing', `saving ${slf.prefix} data!`
                 ));
@@ -334,10 +348,6 @@
                     sct.value = '';
                     sct.dispatchEvent(new Event('change'));
                 });
-
-                const img = document.getElementById('img-prev')
-                
-                img.src = '';
             });
         });
     };
